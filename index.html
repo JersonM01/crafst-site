@@ -1,7 +1,7 @@
 <!doctype html>
-<html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
-<title>CRAFST Amani na Chakula</title>
-<meta name="description" content="CRAFST – Amani na Chakula : réseau régional de coopération transfrontalière pour la sécurité alimentaire et la paix en Afrique de l'Est.">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light}body{margin:0}[hidden]{display:none!important}</style>
+<title>CRAFST – Amani na Chakula</title>
+<meta name="description" content="CRAFST – Amani na Chakula: a regional network for cross-border cooperation on food security and peace in East Africa.">
 <link rel="preload" as="image" href="media/rice.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -171,8 +171,8 @@ main.enter>*{animation:rise .6s var(--ease) both}
 
 /* marquee */
 .marq{background:var(--green-deep);color:#fff;overflow:hidden;padding-block:14px;white-space:nowrap}
-.marq div{display:inline-block;animation:mq 34s linear infinite;font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.6vw,30px)}
-.marq span{margin:0 22px}.marq span.d{opacity:.55}
+.marq div{display:inline-block;animation:mq 75s linear infinite;font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.6vw,30px)}
+.marq span{margin:0 clamp(26px,3.4vw,48px)}
 @keyframes mq{to{transform:translateX(-50%)}}
 
 /* cartes */
@@ -404,7 +404,7 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 
 <div class="util"><div class="wrap pad">
   <nav id="utilnav"></nav>
-  <div class="lang" role="group" aria-label="Langue"><button id="lfr" aria-pressed="true" data-lang="fr">FR</button><button id="len" aria-pressed="false" data-lang="en">EN</button></div>
+  <div class="lang" role="group" aria-label="Language"><button id="lfr" aria-pressed="false" data-lang="fr">FR</button><button id="len" aria-pressed="true" data-lang="en">EN</button></div>
 </div></div>
 
 <header class="top" aria-label="CRAFST">
@@ -440,7 +440,7 @@ var HERO="media/hero.jpg";
 var MEDIA={};
 var IMG=function(k){return "media/"+k+".jpg"};
 var COMIMG=["mosaic","carrot","melon","bees","aerial","village","food","smart"];
-var lang="fr";
+var lang="en";
 try{var sv=localStorage.getItem("crafst-lang");if(sv==="en"||sv==="fr")lang=sv}catch(e){}
 var L=function(f,e){return lang==="fr"?f:e};
 var $=function(s,r){return (r||document).querySelector(s)};
@@ -514,8 +514,8 @@ function wave(from,to,flip){
   return '<svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" style="background:'+from+'"><path d="M0 80V40C160 8 320 0 480 18s320 52 480 40 320-44 480-30V80z" fill="'+to+'"/></svg>';
 }
 function marquee(){
-  var w=["Peace","Food","Resilience","Prosperity","Amani na Chakula","Paix","Nourriture","Résilience","Prospérité"];
-  var s="";for(var r=0;r<2;r++)w.forEach(function(x,i){s+='<span>'+x+'</span><span class="d">✦</span>'});
+  var w=["Conflict-sensitive agriculture","Food System Transformation","Peacebuilding","Climate resilience","Natural resource management","Human capital and gender","Cross-border Value chains","Research and innovation"];
+  var s="";for(var r=0;r<2;r++)w.forEach(function(x){s+='<span>'+x+'</span>'});
   return '<div class="marq" aria-hidden="true"><div>'+s+'</div></div>';
 }
 function head(eb,h,lead,dark){return '<div class="sh rv"><div class="eyebrow">'+eb+'</div><h2>'+h+'</h2>'+(lead?'<p class="lead">'+lead+'</p>':'')+'</div>'}
@@ -529,7 +529,7 @@ function heroArt(){
 }
 function infoGraphic(){
   var N=function(n,fr,en,c){return '<div class="it '+c+' rv"><b data-count="'+n+'">'+fmt(n)+'</b><span>'+L(fr,en)+'</span></div>'};
-  var B=function(p,fr,en,c){return '<div class="br"><div class="bl">'+L(fr,en)+'</div><div class="bt"><i class="'+c+'" style="width:'+(p/40*100).toFixed(1)+'%"></i><em>'+p+' %</em></div></div>'};
+  var B=function(p,fr,en,c){return '<div class="br"><div class="bl">'+L(fr,en)+'</div><div class="bt"><i class="'+c+'" style="width:'+(p/40*100).toFixed(1)+'%"></i><em>'+p+(lang==="fr"?" %":"%")+'</em></div></div>'};
   return '<section class="info" id="objectifs"><div class="wrap pad">'+
   '<div class="sh rv"><div class="eyebrow">'+L("Projet Justice résiliente face au climat · Rwanda – RDC","Climate-resilient justice project · Rwanda – DRC")+'</div>'+
   '<h2>'+L("Ce que nous cherchons à réaliser d'ici 2030","What we aim to achieve by 2030")+'</h2>'+
@@ -652,8 +652,8 @@ function tdc(){
   return '<div class="toc">'+C.map(function(c,i){return '<div class="tc'+(i===3?" fin":"")+' rv d'+(i+1)+'"><small>'+c[0]+'</small><h3>'+c[1]+'</h3><ul>'+c[2].map(function(x){return '<li>'+x+'</li>'}).join("")+'</ul></div>'}).join("")+'</div>';
 }
 function social(dark){
-  var P=[["LinkedIn"],["YouTube"],["X"]];
-  return '<div class="soc">'+P.map(function(p){return '<span class="btn off" aria-disabled="true" title="'+L("Lien à connecter","Link to connect")+'">'+p[0]+' <small>'+L("bientôt","soon")+'</small></span>'}).join("")+'</div>';
+  var P=[["LinkedIn","https://www.linkedin.com/in/jerson-mandundu-746b98244"],["YouTube","https://youtube.com/@marc_jerson"],["X","https://x.com/CRAFST_EAC"]];
+  return '<div class="soc">'+P.map(function(p){return '<a class="btn" href="'+p[1]+'" target="_blank" rel="noopener noreferrer" aria-label="'+p[0]+' ('+L("s'ouvre dans un nouvel onglet","opens in a new tab")+')">'+p[0]+' <span class="ar">↗</span></a>'}).join("")+'</div>';
 }
 
 /* ---------- vue : commission ---------- */
@@ -708,7 +708,7 @@ function vActus(){
   s+='<section class="band"><div class="wrap pad">'+head(L("Actualités","News"),L("Dernières nouvelles","Latest updates"),"")+'<div class="grid g2">'+N.map(function(n,i){return '<article class="card news rv d'+(i%2+1)+'"><div class="meta"><span class="tag '+(i===3?"":"g")+'">'+n[1]+'</span><time>'+n[0]+'</time></div><h3>'+n[2]+'</h3><p>'+n[3]+'</p></article>'}).join("")+'</div></div></section>';
   s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Enquêtes et recherches","Surveys and research"),L("Des données du terrain pour décider","Field data to inform decisions"),L("La commission Recherche prépare une base de données commune. Les premiers résultats seront publiés ici.","The Research commission is building a shared database. First results will be published here."))+
    '<div class="grid g3">'+[[L("Terres disponibles","Available land"),L("Où cultiver, et à quelles conditions.","Where to farm, and on what terms.")],[L("Besoins des bénéficiaires","Beneficiary needs"),L("Ce que demandent les ménages et les coopératives.","What households and cooperatives ask for.")],[L("Épargne et crédit","Savings and credit"),L("L'état des associations villageoises d'épargne et de crédit.","The state of village savings and credit associations.")]].map(function(d,i){return '<div class="card rv d'+(i+1)+'"><span class="tag">'+L("En préparation","In preparation")+'</span><h3>'+d[0]+'</h3><p>'+d[1]+'</p></div>'}).join("")+'</div></div></section>';
-  s+='<section class="band"><div class="wrap pad">'+head(L("Médias","Media"),L("Suivre le réseau","Follow the network"),L("Nos comptes officiels seront reliés ici dès leur ouverture.","Our official accounts will be linked here as soon as they open."))+'<div class="rv">'+social()+'</div></div></section>';
+  s+='<section class="band"><div class="wrap pad">'+head(L("Médias","Media"),L("Suivre le réseau","Follow the network"),L("Retrouvez le réseau sur LinkedIn, YouTube et X.","Find the network on LinkedIn, YouTube and X."))+'<div class="rv">'+social()+'</div></div></section>';
   return s;
 }
 
@@ -770,7 +770,7 @@ function render(){
   renderChrome();
   var pr=$("#prog");pr.classList.remove("run");void pr.offsetWidth;if(changed)pr.classList.add("run");
   document.documentElement.lang=lang;
-  document.title="CRAFST Amani na Chakula";
+  document.title="CRAFST – Amani na Chakula";
   reveal();
   var cf=$("#cform");if(cf)cf.addEventListener("submit",function(e){e.preventDefault();$("#cmsg").innerHTML='<div class="note">'+L("Message non envoyé : la messagerie du réseau n'est pas encore connectée. Le courriel officiel sera publié sur cette page.","Message not sent: the network's mailbox is not connected yet. The official email will be published on this page.")+'</div>'});
   if(pendingSec){var id=pendingSec;pendingSec=null;setTimeout(function(){var t=document.getElementById(id);if(t){var y=t.getBoundingClientRect().top+window.scrollY-60;window.scrollTo({top:y,behavior:"smooth"})}},120)}
