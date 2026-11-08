@@ -169,6 +169,9 @@ main.enter>*{animation:rise .6s var(--ease) both}
 .info .note{margin:16px 0 0;font-size:13px;color:#3B3000}
 @media (max-width:980px){.ig{grid-template-columns:repeat(2,1fr)}.bud{grid-template-columns:1fr}}
 
+.vid{background:#FDF1C4;padding-block:clamp(10px,2vw,24px) clamp(44px,6vw,84px)}
+.vf{margin:0;border-radius:24px;overflow:hidden;box-shadow:0 30px 60px -34px rgba(14,46,87,.55);background:#14212E;aspect-ratio:9/16;width:min(100%,360px);max-height:640px;margin-inline:auto}
+.vf video{display:block;width:100%;height:100%;object-fit:cover}
 /* marquee */
 .marq{background:var(--green-deep);color:#fff;overflow:hidden;padding-block:14px;white-space:nowrap}
 .marq div{display:inline-block;animation:mq 75s linear infinite;font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.6vw,30px)}
@@ -439,7 +442,7 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 var HERO="media/hero.jpg";
 var MEDIA={};
 var IMG=function(k){return "media/"+k+".jpg"};
-var COMIMG=["mosaic","carrot","melon","bees","aerial","village","food","smart"];
+var COMIMG=["village","carrot","food","bees","aerial","melon","maize","smart"];
 var lang="en";
 try{var sv=localStorage.getItem("crafst-lang");if(sv==="en"||sv==="fr")lang=sv}catch(e){}
 var L=function(f,e){return lang==="fr"?f:e};
@@ -607,14 +610,6 @@ function vAccueil(){
    '<div class="rv d2"><ul class="cl">'+STATES.map(function(x){var n=lang==="fr"?x[0]:(STATES_EN[x[0]]||x[0]);return '<li><span class="dot"></span>'+n+'<span class="st '+ST_CLS[x[1]]+'">'+ST_LAB(x[1])+'</span></li>'}).join("")+'</ul>'+
    '<p style="margin-top:14px;font-size:14.5px;color:#4A5B6C">'+L("Statuts à la date de publication : le réseau agit aujourd'hui entre le Rwanda et la RD Congo.","Statuses at publication date: the network operates today between Rwanda and DR Congo.")+'</p></div></div></div></section>';
 
-  var tile=function(p,k,cap){return '<figure class="ti '+p+' rv"><img src="'+IMG(k)+'" alt="" loading="lazy"><figcaption>'+cap+'</figcaption></figure>'};
-  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
-  s+=wave("#FDF1C4","#fff")+'<section class="band" id="terrain" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Sur le terrain","In the field"),L("Des champs, des récoltes, des filières","Fields, harvests, value chains"),L("Les domaines couverts par les huit commissions, de la semence au marché.","The areas covered by the eight commissions, from seed to market."))+
-   '<div class="gal">'+
-   '<figure class="ti p1 rv"><video muted loop playsinline '+(reduce?'':'autoplay ')+'preload="metadata" poster="media/poster.jpg" src="media/video.mp4" aria-label="'+L("Irrigation de cultures","Crop irrigation")+'"></video><figcaption>'+L("Irrigation","Irrigation")+'</figcaption></figure>'+
-   tile("p2","mosaic",L("Cultures diversifiées","Diverse crops"))+tile("p3","carrot",L("Légumes-racines","Root vegetables"))+tile("p4","village",L("Élevage et potagers","Livestock and gardens"))+tile("p5","melon",L("Cultures maraîchères","Market gardening"))+tile("p6","maize",L("Maïs","Maize"))+tile("p7","food",L("De la ferme à l'assiette","Farm to plate"))+tile("p8","bees",L("Apiculture","Beekeeping"))+tile("p9","aerial",L("Vue aérienne","Aerial view"))+
-   '</div><p class="gnote">'+L("Images d'illustration. Les photos des organisations membres les remplaceront.","Illustration images. Photos from member organisations will replace them.")+'</p></div></section>';
-
   s+=wave("#fff","#E6F2E3")+'<section class="band band-mint" id="commissions" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Huit commissions","Eight commissions"),L("Huit domaines de travail, un seul objectif","Eight areas of work, one goal"),L("Chaque commission réunit des organisations membres autour d'un plan d'action. Choisissez un domaine.","Each commission brings member organisations together around an action plan. Pick an area."))+comCards()+'</div></section>';
 
   s+=wave("#E6F2E3","#fff")+'<section class="band" id="programmes" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Programmes","Programmes"),L("Deux programmes en préparation","Two programmes in preparation"),L("Ces propositions sont en discussion au sein de la coordination.","These proposals are under discussion within the coordination."))+
@@ -627,6 +622,8 @@ function vAccueil(){
 
   s+=wave("#fff","#0E2E57")+'<section class="band band-deep on-dark" style="padding-top:clamp(30px,4vw,50px)" id="medias"><div class="wrap pad"><div class="two" style="align-items:center"><div class="rv"><div class="eyebrow">'+L("Suivre le réseau","Follow the network")+'</div><h2 style="color:#fff">'+L("Actualités, enquêtes et contenus médias","News, surveys and media content")+'</h2><p class="lead" style="margin-top:14px">'+L("Retrouvez nos annonces, nos résultats de collecte de données et nos vidéos dès leur mise en ligne.","Find our announcements, data collection results and videos as soon as they go online.")+'</p><div class="cta"><a class="btn btn-sun" href="#actualites" data-go="actualites">'+L("Voir les actualités","See the news")+' <span class="ar">→</span></a><a class="btn btn-line" href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a></div></div><div class="rv d2">'+social(true)+'</div></div></div></section>';
   s+=wave("#0E2E57","#EEF5FB")+'<section class="band band-sky" style="text-align:center;padding-top:clamp(30px,4vw,50px)"><div class="wrap pad rv"><div class="eyebrow">'+L("Agir avec nous","Act with us")+'</div><h2 style="max-width:20ch;margin:10px auto 0">'+L("Rejoignez un réseau qui fait traverser la paix","Join a network that carries peace across borders")+'</h2><div class="cta" style="justify-content:center"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Nous écrire","Write to us")+' <span class="ar">→</span></a><button class="btn btn-sun" data-open="don"><span class="heart">♥</span> '+L("Faire un don","Donate")+'</button></div></div></section>';
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches;
+  s+=wave("#EEF5FB","#FDF1C4")+'<section class="vid" id="video"><div class="wrap pad"><figure class="vf rv"><video muted loop playsinline '+(reduce?'controls ':'autoplay ')+'preload="metadata" poster="media/poster.jpg" src="media/video.mp4" aria-label="'+L("Irrigation de cultures","Crop irrigation")+'"></video></figure></div></section>';
   return s;
 }
 function timeline(){
