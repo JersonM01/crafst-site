@@ -185,6 +185,8 @@ footer .by{display:flex;gap:14px;align-items:center}
 footer .by img{width:60px;height:60px;border-radius:50%;object-fit:cover;border:3px solid var(--sun);display:block}
 footer .by small{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--sun);font-weight:700}
 footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
+.util a.cbtn{background:var(--sun);color:var(--navy-deep);font-weight:700;border-radius:99px;padding:3px 14px}
+.util a.cbtn:hover{background:#fff;color:var(--navy-deep)}
 /* marquee */
 .marq{background:var(--green-deep);color:#fff;overflow:hidden;padding-block:14px;white-space:nowrap}
 .marq div{display:inline-block;animation:mq 75s linear infinite;font-family:var(--f-display);font-weight:600;font-size:clamp(20px,2.6vw,30px)}
@@ -513,7 +515,7 @@ var ST_LAB=function(k){return k===2?L("Membres actifs","Active members"):k===3?L
 var ST_CLS={1:"o",2:"a",3:"e"};
 
 /* ---------- routage ---------- */
-var VIEWS=["accueil","a-propos","bailleurs","actualites","contact"];
+var VIEWS=["accueil","a-propos","bailleurs","actualites","careers","contact"];
 for(var q=1;q<=8;q++)VIEWS.push("commission-"+q);
 var cur="accueil";
 function route(){var h=(location.hash||"").replace("#","");return VIEWS.indexOf(h)>-1?h:"accueil"}
@@ -722,6 +724,26 @@ function vActus(){
   return s;
 }
 
+/* ---------- vue : carrières ---------- */
+var JOBS=[
+  /* Pour publier une offre, ajouter un objet ici :
+  {title:["Titre FR","Title EN"],org:"Organisation",place:"Kigali, Rwanda",type:["CDD","Fixed-term"],deadline:"2026-12-15",link:"https://...",desc:["Résumé FR","Summary EN"]} */
+];
+function vCareers(){
+  var s='<section class="chero on-dark"><div class="wrap pad"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+L("Carrières","Careers")+'</div><div class="eyebrow" style="margin-top:22px">'+L("Travailler avec nous","Work with us")+'</div><h2 style="max-width:20ch">'+L("Carrières et offres d'emploi","Careers and job offers")+'</h2><p class="lead" style="max-width:60ch">'+L("Les postes, missions et consultances proposés par le réseau et ses organisations membres sont publiés sur cette page.","Positions, assignments and consultancies offered by the network and its member organisations are published on this page.")+'</p></div></section>';
+  s+='<section class="band"><div class="wrap pad">'+head(L("Offres en cours","Open positions"),JOBS.length?L("Postes ouverts","Open positions"):L("Aucune offre pour le moment","No vacancies at the moment"),"");
+  if(JOBS.length){
+    s+='<div class="grid g2">'+JOBS.map(function(j,i){var k=lang==="fr"?0:1;return '<article class="card news rv d'+(i%2+1)+'"><div class="meta"><span class="tag g">'+j.type[k]+'</span>'+(j.deadline?'<time>'+L("Date limite : ","Deadline: ")+j.deadline+'</time>':'')+'</div><h3>'+j.title[k]+'</h3><p><b>'+j.org+'</b> · '+j.place+'</p><p>'+j.desc[k]+'</p>'+(j.link?'<a class="btn btn-navy" href="'+j.link+'" target="_blank" rel="noopener noreferrer">'+L("Voir l'offre","View the offer")+' <span class="ar">↗</span></a>':'')+'</article>'}).join("")+'</div>';
+  }else{
+    s+='<div class="card rv" style="max-width:720px"><h3 style="margin:0 0 8px">'+L("Pas de poste ouvert aujourd'hui","No open position today")+'</h3><p>'+L("Les offres du réseau et de ses organisations membres apparaîtront ici dès leur publication, avec le lieu, le type de contrat et la date limite.","Offers from the network and its member organisations will appear here as soon as they are published, with location, contract type and deadline.")+'</p></div>';
+  }
+  s+='</div></section>';
+  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Publier une offre","Publish an offer"),L("Vous recrutez ? Faites-le savoir au réseau","Hiring? Let the network know"),L("Les organisations membres et les partenaires peuvent proposer une offre d'emploi, une consultance ou un appel à candidatures. Le secrétariat la relit avant publication.","Member organisations and partners can submit a job offer, a consultancy or a call for applications. The secretariat reviews it before publication."))+
+   '<div class="grid g3">'+[[L("Ce qu'il faut envoyer","What to send"),L("Titre du poste, organisation, lieu, type de contrat, date limite, description et lien ou courriel pour postuler.","Job title, organisation, location, contract type, deadline, description and a link or email to apply.")],[L("Qui peut publier","Who can publish"),L("Le réseau, ses organisations membres et ses partenaires.","The network, its member organisations and its partners.")],[L("Langues","Languages"),L("Les offres sont publiées en anglais, et en français si l'organisation le souhaite.","Offers are published in English, and in French if the organisation wishes.")]].map(function(d,i){return '<div class="card rv d'+(i+1)+'"><h3>'+d[0]+'</h3><p>'+d[1]+'</p></div>'}).join("")+'</div>'+
+   '<div class="cta rv" style="margin-top:28px"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Écrire au secrétariat","Write to the secretariat")+' <span class="ar">→</span></a></div></div></section>';
+  return s;
+}
+
 /* ---------- vue : contact ---------- */
 function vContact(){
   var s='<section class="chero on-dark"><div class="wrap pad"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / Contact</div><div class="eyebrow" style="margin-top:22px">Contact</div><h2 style="max-width:20ch">'+L("Parlons de ce que nous pouvons faire ensemble","Let's talk about what we can do together")+'</h2><p class="lead">'+L("Organisations, bailleurs, chercheurs, médias : écrivez au secrétariat du réseau.","Organisations, donors, researchers, media: write to the network's secretariat.")+'</p></div></section>';
@@ -738,7 +760,7 @@ function vContact(){
 
 /* ---------- pied, nav ---------- */
 function renderChrome(){
-  $("#utilnav").innerHTML='<a href="#a-propos" data-go="a-propos">'+L("À propos","About")+'</a><a href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a><a href="#actualites" data-go="actualites">'+L("Actualités","News")+'</a>';
+  $("#utilnav").innerHTML='<a href="#a-propos" data-go="a-propos">'+L("À propos","About")+'</a><a href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a><a href="#actualites" data-go="actualites">'+L("Actualités","News")+'</a><a class="cbtn" href="#careers" data-go="careers">'+L("Carrières","Careers")+'</a>';
   var items=[["accueil",L("Accueil","Home")]].concat(COM.map(function(c,i){return ["commission-"+(i+1),c.s[lang==="fr"?0:1],i+1,c.f[lang==="fr"?0:1]]})).concat([["contact","Contact"]]);
   $("#mainnav").innerHTML=items.map(function(x){return '<li><a class="nv" href="#'+x[0]+'" data-go="'+x[0]+'"'+(x[3]?' title="'+x[3].replace(/"/g,"&quot;")+'"':"")+(cur===x[0]?' aria-current="page"':"")+'>'+x[1]+'</a></li>'}).join("");
   $("#navdon").innerHTML='<span class="heart">♥</span> '+L("Faire un don","Donate");
@@ -750,7 +772,7 @@ function renderChrome(){
    '<div class="sel" role="group" aria-label="'+L("Langue","Language")+'"><label><input type="radio" name="nll" value="fr" '+(lang==="fr"?"checked":"")+'> Français</label><label><input type="radio" name="nll" value="en" '+(lang==="en"?"checked":"")+'> English</label></div>'+
    '<label class="ck"><input id="nl-c" type="checkbox"><span>'+L("J'accepte de recevoir les communications et les dernières nouvelles de CRAFST – Amani na Chakula.","I agree to receive communications and the latest news from CRAFST – Amani na Chakula.")+'</span></label><div id="nlmsg" role="status"></div></form></div>';
   $("#foot").innerHTML='<div class="cols"><div><div class="fb"><img src="media/emblem.png" alt=""><div><b>CRAFST</b><span>Amani na Chakula</span></div></div><p style="margin-top:16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;max-width:34ch">Conflict Response and Agricultural Food System Transformation in East African Community</p><p style="margin-top:14px;font-weight:700;color:#fff">Peace · Food · Resilience · Prosperity</p></div>'+
-   '<div><h4>'+L("Le réseau","The network")+'</h4><a href="#a-propos" data-go="a-propos">'+L("À propos","About")+'</a><a href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a><a href="#actualites" data-go="actualites">'+L("Actualités","News")+'</a><a href="#contact" data-go="contact">Contact</a></div>'+
+   '<div><h4>'+L("Le réseau","The network")+'</h4><a href="#a-propos" data-go="a-propos">'+L("À propos","About")+'</a><a href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a><a href="#actualites" data-go="actualites">'+L("Actualités","News")+'</a><a href="#careers" data-go="careers">'+L("Carrières","Careers")+'</a><a href="#contact" data-go="contact">Contact</a></div>'+
    '<div><h4>'+L("Commissions","Commissions")+'</h4>'+COM.slice(0,4).map(function(c,i){return '<a href="#commission-'+(i+1)+'" data-go="commission-'+(i+1)+'">'+c.s[lang==="fr"?0:1]+'</a>'}).join("")+'</div>'+
    '<div><h4>&nbsp;</h4>'+COM.slice(4).map(function(c,i){return '<a href="#commission-'+(i+5)+'" data-go="commission-'+(i+5)+'">'+c.s[lang==="fr"?0:1]+'</a>'}).join("")+'</div></div><div class="legal"><span>© 2026 CRAFST – Amani na Chakula</span><span>'+L("Kigali, Rwanda · Français / English","Kigali, Rwanda · Français / English")+'</span></div>'+
    '<div class="dev"><p>'+L("Site développé par <b>Intergalactic Writer Shop Ltd</b>, société basée à Kigali, Rwanda. TIN : 156505206.","Website developed by <b>Intergalactic Writer Shop Ltd</b>, a company based in Kigali, Rwanda. TIN: 156505206.")+'</p><div class="by"><img src="media/jerson.jpg" alt="Bubala Mandundu Jerson" width="60" height="60" loading="lazy"><div><small>'+L("Développeur","Developer")+'</small><strong>Bubala Mandundu Jerson</strong></div></div></div>';
@@ -775,7 +797,7 @@ function count(el){
 function render(){
   var v=route();var changed=v!==cur;cur=v;
   var main=$("#main");
-  var h=v==="accueil"?vAccueil():v==="a-propos"?vApropos():v==="bailleurs"?vBailleurs():v==="actualites"?vActus():v==="contact"?vContact():vCom(+v.split("-")[1]);
+  var h=v==="accueil"?vAccueil():v==="a-propos"?vApropos():v==="bailleurs"?vBailleurs():v==="actualites"?vActus():v==="careers"?vCareers():v==="contact"?vContact():vCom(+v.split("-")[1]);
   main.innerHTML=h;
   main.classList.remove("enter");void main.offsetWidth;if(changed)main.classList.add("enter");
   renderChrome();
