@@ -687,7 +687,7 @@ function tdc(){
   return '<div class="toc">'+C.map(function(c,i){return '<div class="tc'+(i===3?" fin":"")+' rv d'+(i+1)+'"><small>'+c[0]+'</small><h3>'+c[1]+'</h3><ul>'+c[2].map(function(x){return '<li>'+x+'</li>'}).join("")+'</ul></div>'}).join("")+'</div>';
 }
 function social(dark){
-  var P=[["LinkedIn","https://www.linkedin.com/in/jerson-mandundu-746b98244"],["YouTube","https://youtube.com/@marc_jerson"],["X","https://x.com/CRAFST_EAC"]];
+  var P=[["LinkedIn","https://www.linkedin.com/in/jerson-mandundu-746b98244"],["YouTube","https://youtube.com/@crafst_eac"],["X","https://x.com/CRAFST_EAC"]];
   return '<div class="soc">'+P.map(function(p){return '<a class="btn" href="'+p[1]+'" target="_blank" rel="noopener noreferrer" aria-label="'+p[0]+' ('+L("s'ouvre dans un nouvel onglet","opens in a new tab")+')">'+p[0]+' <span class="ar">↗</span></a>'}).join("")+'</div>';
 }
 
