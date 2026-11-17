@@ -70,6 +70,16 @@ p{margin:0}
 .mainnav a.nv:hover::after,.mainnav a.nv[aria-current=page]::after{transform:scaleX(1)}
 .mainnav a.nv .n{color:var(--sun);font-weight:800;margin-right:5px;font-size:12px}
 .mainnav .dn{align-self:center;margin-left:8px;flex:none}
+.mainnav li.hs{position:relative}
+.mainnav .cv{display:inline-block;width:6px;height:6px;border-right:2px solid var(--sun);border-bottom:2px solid var(--sun);transform:rotate(45deg) translate(-2px,-2px);margin-left:7px}
+.mainnav .sub{display:none;position:absolute;left:0;top:100%;min-width:300px;max-width:380px;background:var(--navy-deep);padding:8px;border-radius:0 0 14px 14px;box-shadow:0 18px 36px -14px rgba(14,46,87,.7);z-index:60}
+.mainnav .sub a{display:block;color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;line-height:1.3;padding:10px 14px;border-radius:9px}
+.mainnav .sub a:hover,.mainnav .sub a:focus-visible{background:rgba(255,255,255,.12);color:var(--sun)}
+.mainnav li.hs:hover .sub,.mainnav li.hs:focus-within .sub{display:block}
+.mainnav.shut .sub{display:none!important}
+@media (min-width:1001px){.mainnav ul{overflow:visible}}
+@media (max-width:1000px){.mainnav .sub,.mainnav .cv{display:none!important}}
+
 .prog{position:absolute;left:0;bottom:0;height:3px;width:100%;background:linear-gradient(90deg,var(--sun),var(--green),var(--sun));transform:scaleX(0);transform-origin:left;opacity:0}
 .prog.run{animation:sweep .8s var(--ease)}
 @keyframes sweep{0%{transform:scaleX(0);opacity:1}70%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:0}}
@@ -477,7 +487,7 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 var HERO="media/hero.jpg";
 var MEDIA={};
 var IMG=function(k){return "media/"+k+".jpg"};
-var COMIMG=["village","carrot","food","bees","aerial","melon","maize","smart"];
+var COMIMG=["village","aerial","melon","maize","smart","food","carrot","bees"];
 var lang="en";
 try{var sv=localStorage.getItem("crafst-lang");if(sv==="en"||sv==="fr")lang=sv}catch(e){}
 var L=function(f,e){return lang==="fr"?f:e};
@@ -499,35 +509,35 @@ var I={
  road:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3L5 21M16 3l3 18M12 4v3M12 11v3M12 18v2"/></svg>',
  chat:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.600 7.100L4 20l1-4.600A8 8 0 1 1 21 12z"/></svg>'
 };
-var ICOS=["peace","wheat","swap","heart","cloud","coin","bowl","lens"];
-var ICOC=["","g","y","","g","y","g",""];
+var ICOS=["peace","wheat","heart","cloud","swap","bowl","lens","coin"];
+var ICOC=["","g","","g","y","g","","y"];
 
 /* ---------- données ---------- */
 var COM=[
- {s:["Paix","Peace"],f:["Consolidation de la paix et cohésion sociale","Peacebuilding and social cohesion"],
-  i:["Là où des voisins se disputent la terre, l'eau et les marchés, les champs restent vides. Cette commission fait de l'agriculture un terrain de dialogue entre communautés, de part et d'autre des frontières.","Where neighbours compete over land, water and markets, fields stay empty. This commission turns farming into common ground for communities on both sides of the border."],
-  a:[["Dialogue communautaire autour des terres, de l'eau et des marchés","Community dialogue on land, water and markets"],["Prévention et médiation des conflits entre agriculteurs et éleveurs","Prevention and mediation of conflicts between farmers and herders"],["Cohésion entre déplacés, rapatriés et communautés d'accueil","Cohesion between displaced people, returnees and host communities"],["Plaidoyer pour la sécurité et l'accès aux zones de production et aux marchés","Advocacy for safe access to production areas and markets"]]},
- {s:["Agriculture","Agriculture"],f:["Agriculture, pêche et élevage","Agriculture, fisheries and livestock"],
-  i:["Les paysans, éleveurs et pêcheurs sont le premier maillon de la sécurité alimentaire. La commission renforce leurs pratiques, leurs groupes et leurs revenus.","Farmers, herders and fishers are the first link in food security. The commission strengthens their practices, their groups and their incomes."],
-  a:[["Pratiques agricoles résilientes et semences adaptées au climat","Resilient farming practices and climate-adapted seeds"],["Élevage, pêche et aquaculture comme sources de revenu","Livestock, fisheries and aquaculture as income sources"],["Appui aux coopératives et aux groupes de paysans","Support for cooperatives and farmer groups"],["Protection des consommateurs et qualité des produits","Consumer protection and product quality"]]},
- {s:["Chaînes de valeur","Value chains"],f:["Entrepreneuriat et chaînes de valeur transfrontalières","Entrepreneurship and cross-border value chains"],
-  i:["Un sac de haricots n'a pas la même valeur des deux côtés d'une frontière. Cette commission relie les producteurs aux marchés voisins et soutient ceux qui transforment et vendent.","A sack of beans is worth different amounts on each side of a border. This commission links producers to neighbouring markets and backs those who process and sell."],
-  a:[["Mise en relation des producteurs avec les marchés de l'autre côté de la frontière","Linking producers to markets across the border"],["Transformation et valorisation des produits sur place","Local processing and added value"],["Appui aux petites entreprises et aux coopératives","Support for small businesses and cooperatives"],["Information partagée sur les règles et les prix des échanges","Shared information on trade rules and prices"]]},
- {s:["Santé","Health"],f:["Santé et médecine naturelle","Health and natural medicine"],
-  i:["On cultive mieux quand on est en bonne santé, et on se nourrit mieux quand on cultive. La commission relie nutrition, santé communautaire et savoirs locaux.","People farm better when healthy and eat better when they farm. The commission connects nutrition, community health and local knowledge."],
-  a:[["Santé communautaire liée à la nutrition","Community health linked to nutrition"],["Médecine naturelle et savoirs locaux","Natural medicine and local knowledge"],["Approche « Une seule santé » : humains, animaux, environnement","\"One Health\" approach: people, animals, environment"],["Prévention et sensibilisation dans les zones frontalières","Prevention and awareness in border areas"]]},
- {s:["Climat","Climate"],f:["Réduction des risques de catastrophes et changement climatique","Disaster risk reduction and climate change"],
+ {s:["Paix et justice","Peace and justice"],f:["Consolidation de la paix et justice sociale","Peacebuilding and social justice"],
+  i:["Là où des voisins se disputent la terre, l'eau et les marchés, les champs restent vides. Cette commission fait de l'agriculture un terrain de dialogue entre communautés, de part et d'autre des frontières, et défend un accès équitable à la justice.","Where neighbours compete over land, water and markets, fields stay empty. This commission turns farming into common ground for communities on both sides of the border and works for fair access to justice."],
+  a:[["Dialogue communautaire autour des terres, de l'eau et des marchés","Community dialogue on land, water and markets"],["Prévention et médiation des conflits entre agriculteurs et éleveurs","Prevention and mediation of conflicts between farmers and herders"],["Cohésion entre déplacés, rapatriés et communautés d'accueil","Cohesion between displaced people, returnees and host communities"],["Accompagnement juridique et accès à l'identité légale pour les personnes vulnérables","Legal support and access to legal identity for vulnerable people"],["Plaidoyer pour la sécurité et l'accès aux zones de production et aux marchés","Advocacy for safe access to production areas and markets"]]},
+ {s:["Ressources naturelles","Natural resources"],f:["Gestion des ressources naturelles","Natural resources management"],
+  i:["Les terres, l'eau, les forêts, les pâturages et les poissons sont la base de chaque récolte. La commission aide les communautés à les partager et à les protéger durablement.","Land, water, forests, pastures and fish are the base of every harvest. The commission helps communities share and protect them for the long term."],
+  a:[["Gestion durable des terres, de l'eau et des pâturages","Sustainable management of land, water and pastures"],["Pêche, aquaculture et élevage durables","Sustainable fisheries, aquaculture and livestock"],["Agroforesterie, reboisement et protection des sols","Agroforestry, reforestation and soil protection"],["Règles communes pour les ressources partagées de part et d'autre de la frontière","Shared rules for resources that cross the border"]]},
+ {s:["Santé, eau, assainissement","Health, water, sanitation"],f:["Santé, eau et assainissement","Health, water and sanitation"],
+  i:["On cultive mieux quand on est en bonne santé, et on se nourrit mieux quand on cultive. La commission relie santé communautaire, eau potable, assainissement et savoirs locaux.","People farm better when healthy and eat better when they farm. The commission connects community health, safe water, sanitation and local knowledge."],
+  a:[["Santé communautaire liée à la nutrition","Community health linked to nutrition"],["Accès à l'eau potable et à l'assainissement dans les communautés","Access to safe water and sanitation in communities"],["Approche « Une seule santé » : humains, animaux, environnement","\"One Health\" approach: people, animals, environment"],["Médecine naturelle et savoirs locaux","Natural medicine and local knowledge"],["Prévention et sensibilisation dans les zones frontalières","Prevention and awareness in border areas"]]},
+ {s:["Climat","Climate"],f:["Changement climatique","Climate change"],
   i:["Sécheresses, inondations et glissements de terrain détruisent des récoltes entières. La commission aide les communautés à anticiper, à s'adapter et à produire avec une énergie propre.","Droughts, floods and landslides wipe out entire harvests. The commission helps communities anticipate, adapt and produce with clean energy."],
-  a:[["Adaptation de l'agriculture aux sécheresses et aux inondations","Adapting farming to droughts and floods"],["Réduction des risques de catastrophes dans les communautés","Disaster risk reduction in communities"],["Énergie renouvelable pour produire et transformer","Renewable energy for production and processing"],["Gestion durable des ressources naturelles","Sustainable management of natural resources"]]},
- {s:["Inclusion","Inclusion"],f:["Inclusion financière et autonomisation des jeunes et des femmes","Financial inclusion and empowerment of youth and women"],
-  i:["Sans épargne ni crédit, un bon champ reste un petit champ. La commission ouvre l'accès aux services financiers, avec les femmes et les jeunes au premier plan.","Without savings or credit, a good field stays a small field. The commission opens access to financial services, with women and youth at the forefront."],
-  a:[["Associations villageoises d'épargne et de crédit","Village savings and credit associations"],["Accès au crédit et aux services financiers","Access to credit and financial services"],["Autonomisation économique des femmes","Economic empowerment of women"],["Emplois et initiatives des jeunes dans la filière agricole","Youth jobs and initiatives in the farming sector"]]},
- {s:["Alimentation","Food"],f:["Sécurité alimentaire et transformation alimentaire","Food security and food processing"],
-  i:["Produire ne suffit pas : il faut conserver, transformer, distribuer et nourrir. La commission suit la nourriture du champ jusqu'à l'assiette.","Producing is not enough: food must be stored, processed, distributed and eaten. The commission follows food from the field to the plate."],
-  a:[["Disponibilité et accès à la nourriture pour les ménages","Availability of, and household access to, food"],["Nutrition, en particulier des enfants et des mères","Nutrition, especially for children and mothers"],["Transformation et conservation des produits","Processing and preservation of produce"],["Réduction des pertes après récolte","Reducing post-harvest losses"]]},
- {s:["Recherche","Research"],f:["Recherche, innovation, technologie et gestion des connaissances","Research, innovation, technology and knowledge management"],
+  a:[["Adaptation de l'agriculture aux sécheresses et aux inondations","Adapting farming to droughts and floods"],["Réduction des risques de catastrophes dans les communautés","Disaster risk reduction in communities"],["Alerte précoce et information climatique pour les agriculteurs","Early warning and climate information for farmers"],["Énergie renouvelable pour produire et transformer","Renewable energy for production and processing"]]},
+ {s:["Innovation et numérique","Innovation and digital"],f:["Innovation et digitalisation","Innovation and digitalisation"],
+  i:["La technologie peut apporter marchés, données et conseils à ceux qui vivent loin des villes. La commission teste et partage des outils numériques utiles aux paysans et aux petites entreprises.","Technology can bring markets, data and advice to people far from the cities. The commission tests and shares digital tools that work for farmers and small businesses."],
+  a:[["Cartographie (SIG) et outils numériques pour les paysans","Mapping (GIS) and digital tools for farmers"],["Base de données commune au réseau","A shared network database"],["Information sur les prix et les marchés par téléphone","Price and market information by phone"],["Technologies propres pour produire et transformer","Clean technologies for production and processing"]]},
+ {s:["Sécurité alimentaire","Food security"],f:["Sécurité alimentaire et nutrition","Food security and nutrition"],
+  i:["Produire ne suffit pas : il faut conserver, transformer, distribuer et nourrir. La commission suit la nourriture du champ jusqu'à l'assiette, et relie les producteurs aux marchés voisins.","Producing is not enough: food must be stored, processed, distributed and eaten. The commission follows food from the field to the plate and links producers to neighbouring markets."],
+  a:[["Disponibilité et accès à la nourriture pour les ménages","Availability of, and household access to, food"],["Nutrition, en particulier des enfants et des mères","Nutrition, especially for children and mothers"],["Transformation et conservation des produits","Processing and preservation of produce"],["Réduction des pertes après récolte","Reducing post-harvest losses"],["Chaînes de valeur et marchés transfrontaliers pour les produits des paysans","Cross-border value chains and markets for farmers' produce"]]},
+ {s:["Connaissances","Knowledge"],f:["Connaissances","Knowledge"],
   i:["Des décisions solides demandent des données solides. La commission rassemble les connaissances du terrain et en fait des preuves utiles aux politiques et aux bailleurs.","Sound decisions need sound data. The commission gathers field knowledge and turns it into evidence for policies and donors."],
-  a:[["Collecte de données : terres disponibles, besoins des bénéficiaires, associations d'épargne","Data collection: available land, beneficiary needs, savings associations"],["Base de données commune au réseau","A shared network database"],["Cartographie (SIG) et innovation numérique","Mapping (GIS) and digital innovation"],["Capitalisation des expériences et preuves pour le plaidoyer","Capturing lessons and building evidence for advocacy"]]}
+  a:[["Collecte de données : terres disponibles, besoins des bénéficiaires, associations d'épargne","Data collection: available land, beneficiary needs, savings associations"],["Recherches et enquêtes de terrain","Field research and surveys"],["Partage des leçons et apprentissage entre organisations membres","Sharing lessons and learning among member organisations"],["Capitalisation des expériences et preuves pour le plaidoyer","Capturing lessons and building evidence for advocacy"]]},
+ {s:["Inclusion financière","Financial inclusion"],f:["Inclusion financière, genre, autonomisation des femmes et des jeunes","Financial inclusion, gender, women and youth empowerment"],
+  i:["Sans épargne ni crédit, un bon champ reste un petit champ. La commission ouvre l'accès aux services financiers, avec les femmes et les jeunes au premier plan.","Without savings or credit, a good field stays a small field. The commission opens access to financial services, with women and youth at the forefront."],
+  a:[["Associations villageoises d'épargne et de crédit","Village savings and credit associations"],["Accès au crédit et aux services financiers","Access to credit and financial services"],["Autonomisation économique des femmes et égalité de genre","Economic empowerment of women and gender equality"],["Emplois et initiatives des jeunes dans la filière agricole","Youth jobs and initiatives in the farming sector"]]}
 ];
 var STATES=[["Burundi",1],["RD Congo",2],["Kenya",1],["Rwanda",2],["Somalie",1],["Soudan du Sud",1],["Tanzanie",1],["Ouganda",3]];
 var STATES_EN={"RD Congo":"DR Congo","Somalie":"Somalia","Soudan du Sud":"South Sudan","Tanzanie":"Tanzania","Ouganda":"Uganda"};
@@ -535,7 +545,7 @@ var ST_LAB=function(k){return k===2?L("Membres actifs","Active members"):k===3?L
 var ST_CLS={1:"o",2:"a",3:"e"};
 
 /* ---------- routage ---------- */
-var VIEWS=["accueil","a-propos","bailleurs","actualites","careers","contact"];
+var VIEWS=["accueil","a-propos","bailleurs","actualites","careers","contact","commissions","publications","medias","partenariat"];
 for(var q=1;q<=8;q++)VIEWS.push("commission-"+q);
 var cur="accueil";
 function route(){var h=(location.hash||"").replace("#","");return VIEWS.indexOf(h)>-1?h:"accueil"}
@@ -707,15 +717,83 @@ function vCom(n){
 /* ---------- vue : à propos ---------- */
 function vApropos(){
   var s='<section class="chero on-dark"><div class="wrap pad"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+L("À propos","About")+'</div><div class="eyebrow" style="margin-top:22px">'+L("Qui nous sommes","Who we are")+'</div><h2 style="max-width:22ch">'+L("Un réseau régional au service de la paix et de la nourriture","A regional network serving peace and food")+'</h2><p class="lead">'+L("CRAFST est une plateforme permanente de coopération, d'apprentissage et de partage d'expériences. Chaque organisation membre garde son identité juridique et sa responsabilité.","CRAFST is a permanent platform for cooperation, learning and sharing experience. Each member organisation keeps its own legal identity and responsibility.")+'</p></div></section>';
-  s+='<section class="band"><div class="wrap pad"><div class="grid g2"><div class="card rv"><span class="ico g">'+I.lens+'</span><h3>'+L("Vision","Vision")+'</h3><p>'+L("Une Afrique de l'Est pacifique, sûre sur le plan alimentaire, résiliente face au climat et économiquement dynamique, où les communautés coopèrent au-delà des frontières.","A peaceful, food-secure, climate-resilient and economically vibrant East Africa, where communities cooperate across borders.")+'</p></div><div class="card rv d1"><span class="ico y">'+I.shield+'</span><h3>'+L("Mission","Mission")+'</h3><p>'+L("Transformer l'agriculture et les systèmes alimentaires en moteurs de paix, de résilience, de dignité humaine et de prospérité partagée.","Turn agriculture and food systems into engines of peace, resilience, human dignity and shared prosperity.")+'</p></div></div>'+
-   '<div class="grid" style="margin-top:clamp(40px,6vw,70px)">'+head(L("Contexte de création","Why the network exists"),L("Des défis qui se nourrissent entre eux","Challenges that feed each other"),L("Conflits, déplacements de populations, insécurité alimentaire, changement climatique, catastrophes, production perturbée, marchés peu reliés et peu de revenus : ces défis sont liés. L'agriculture et la sécurité alimentaire sont de vrais leviers de paix, surtout dans les zones transfrontalières. Le réseau démarre entre le Rwanda et la RD Congo et vise une extension progressive à toute la Communauté d'Afrique de l'Est.","Conflict, displacement, food insecurity, climate change, disasters, disrupted production, weak market links and low incomes: these challenges are connected. Agriculture and food security are real levers for peace, especially in border areas. The network starts between Rwanda and DR Congo and aims to grow progressively across the whole East African Community."))+'</div></div></section>';
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Gouvernance","Governance"),L("Le Comité de coordination","The Coordination Committee"),"")+'<div class="people">'+
+  s+='<section class="band"><div class="wrap pad"><div class="grid g2"><div class="card rv" id="vision"><span class="ico g">'+I.lens+'</span><h3>'+L("Vision","Vision")+'</h3><p>'+L("Une Afrique de l'Est pacifique, sûre sur le plan alimentaire, résiliente face au climat et économiquement dynamique, où les communautés coopèrent au-delà des frontières.","A peaceful, food-secure, climate-resilient and economically vibrant East Africa, where communities cooperate across borders.")+'</p></div><div class="card rv d1" id="mission"><span class="ico y">'+I.shield+'</span><h3>'+L("Mission","Mission")+'</h3><p>'+L("Transformer l'agriculture et les systèmes alimentaires en moteurs de paix, de résilience, de dignité humaine et de prospérité partagée.","Turn agriculture and food systems into engines of peace, resilience, human dignity and shared prosperity.")+'</p></div></div>'+
+   '<div class="grid" id="why" style="margin-top:clamp(40px,6vw,70px)">'+head(L("Contexte de création","Why the network exists"),L("Des défis qui se nourrissent entre eux","Challenges that feed each other"),L("Conflits, déplacements de populations, insécurité alimentaire, changement climatique, catastrophes, production perturbée, marchés peu reliés et peu de revenus : ces défis sont liés. L'agriculture et la sécurité alimentaire sont de vrais leviers de paix, surtout dans les zones transfrontalières. Le réseau démarre entre le Rwanda et la RD Congo et vise une extension progressive à toute la Communauté d'Afrique de l'Est.","Conflict, displacement, food insecurity, climate change, disasters, disrupted production, weak market links and low incomes: these challenges are connected. Agriculture and food security are real levers for peace, especially in border areas. The network starts between Rwanda and DR Congo and aims to grow progressively across the whole East African Community."))+'</div></div></section>';
+  s+=wave("#fff","#E6F2E3")+valuesBand()+wave("#E6F2E3","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Gouvernance","Governance"),L("Le Comité de coordination","The Coordination Committee"),"")+'<div class="people">'+
    [[L("Coordinateur","Coordinator"),"Damien Ndizeye"],[L("Coordinateur adjoint","Deputy coordinator"),"Emile Bisimwa"],[L("Secrétaire technique et financier","Technical and financial secretary"),"Jerson Bubala Mandundu"],[L("Conseiller","Advisor"),"Dieudonné Karahanyuze Mugongo"],[L("Conseiller","Advisor"),"Sunzu Ntangazwa Manassé"],[L("Conseiller technique","Technical advisor"),"Jules Kazungu"]].map(function(p,i){return '<div class="person rv d'+(i%3+1)+'"><small>'+p[0]+'</small><b>'+p[1]+'</b></div>'}).join("")+'</div></div></section>';
   s+='<section class="band"><div class="wrap pad">'+head(L("Membres","Members"),L("Les organisations du réseau","The network's organisations"),"")+
    '<div class="eyebrow rv" style="margin-bottom:12px">'+L("Organisations fondatrices","Founding organisations")+'</div><div class="orgs rv">'+[["ADECOR","Rwanda"],["RCID","Rwanda"],["LAC",L("RD Congo","DR Congo")],["CLOU",L("RD Congo","DR Congo")],["ODAPP",L("RD Congo","DR Congo")],["COMFORT CONGO",L("RD Congo","DR Congo")],["APSDI",L("RD Congo","DR Congo")],["APROVIT",L("RD Congo","DR Congo")]].map(function(o){return '<span class="org">'+o[0]+' <small>'+o[1]+'</small></span>'}).join("")+'</div>'+
    '<div class="eyebrow rv" style="margin:28px 0 12px">'+L("Nouveaux membres (25 septembre 2026)","New members (25 September 2026)")+'</div><div class="orgs rv"><span class="org new">ASCOM</span><span class="org new">ABC</span><span class="org new">SOCOODAP</span></div>'+
    '<div class="cta rv"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Devenir membre","Become a member")+' <span class="ar">→</span></a></div></div></section>';
   s+='<section class="band band-sky"><div class="wrap pad">'+head(L("Théorie du changement","Theory of change"),L("De l'action à l'impact","From action to impact"),"")+tdc()+'</div></section>';
+  return s;
+}
+
+
+/* ---------- vues : menu ---------- */
+function pageHero(crumb,eb,h,lead){
+  return '<section class="chero on-dark"><div class="wrap pad"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+crumb+'</div><div class="eyebrow" style="margin-top:22px">'+eb+'</div><h2 style="max-width:22ch">'+h+'</h2><p class="lead" style="max-width:62ch">'+lead+'</p></div></section>';
+}
+function cardsRow(arr,cls){
+  return '<div class="grid '+(cls||"g3")+'">'+arr.map(function(d,i){return '<div class="card rv d'+(i%4+1)+'"><h3>'+d[0]+'</h3><p>'+d[1]+'</p>'+(d[2]||"")+'</div>'}).join("")+'</div>';
+}
+function valuesBand(){
+  var V=[
+   [L("Paix et dialogue","Peace and dialogue"),L("Nous réglons les différends par le dialogue et faisons de l'agriculture un terrain commun de part et d'autre des frontières.","We settle differences through dialogue and make farming common ground across borders.")],
+   [L("Solidarité et coopération","Solidarity and cooperation"),L("Les organisations membres travaillent ensemble et gardent leur identité juridique et leur responsabilité.","Member organisations work together and keep their own legal identity and responsibility.")],
+   [L("Inclusion","Inclusion"),L("Les femmes, les jeunes, les personnes déplacées et les paysans ont leur place autour de la table.","Women, youth, displaced people and farmers have a seat at the table.")],
+   [L("Redevabilité et transparence","Accountability and transparency"),L("Suivi, évaluation et apprentissage sur toutes les actions, et accords écrits pour chaque engagement conjoint.","Monitoring, evaluation and learning on every action, and written agreements for every joint commitment.")],
+   [L("Respect des communautés","Respect for communities"),L("Chaque action est pensée avec les paysans et les communautés des zones frontalières.","Every action is designed with farmers and communities in border areas.")],
+   [L("Durabilité et innovation","Sustainability and innovation"),L("Protéger les terres et l'eau pour les générations futures, et tester des idées qui servent les paysans.","Protect land and water for future generations, and test ideas that serve farmers.")]];
+  return '<section class="band band-mint" id="values" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Valeurs","Values"),L("Ce qui guide notre travail","What guides our work"),"")+cardsRow(V,"g3")+'</div></section>';
+}
+function vProgrammes(){
+  var s=pageHero(L("Programmes","Programs"),L("Nos programmes","Our programs"),L("Huit commissions, un seul réseau","Eight commissions, one network"),L("Chaque commission réunit les organisations membres autour d'un thème. Choisissez-en une pour voir ses axes de travail.","Each commission brings member organisations together around one theme. Pick one to see its areas of work."));
+  s+='<section class="band"><div class="wrap pad">'+comCards()+
+   '<div class="cta rv" style="margin-top:34px"><a class="btn btn-navy" href="#accueil" data-go="accueil" data-sec="programmes">'+L("Voir les deux programmes en préparation","See the two programmes in preparation")+' <span class="ar">→</span></a><a class="btn btn-line" href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a></div></div></section>';
+  return s;
+}
+var PUBS=[]; /* {title:[fr,en],type:[fr,en],date:"",link:"",desc:[fr,en]} */
+function vPublications(){
+  var k=lang==="fr"?0:1;
+  var s=pageHero("Publications",L("Ressources","Resources"),L("Publications, politiques et recherches","Publications, policies and research"),L("Les documents du réseau seront publiés ici : textes fondateurs, notes conceptuelles, rapports, politiques et résultats de recherche.","The network's documents will be published here: founding texts, concept notes, reports, policies and research findings."));
+  s+='<section class="band"><div class="wrap pad">'+head(L("Bibliothèque","Library"),PUBS.length?L("Documents disponibles","Available documents"):L("Aucune publication pour le moment","No publications yet"),"");
+  if(PUBS.length){
+    s+='<div class="grid g2">'+PUBS.map(function(d,i){return '<article class="card news rv d'+(i%2+1)+'"><div class="meta"><span class="tag g">'+d.type[k]+'</span>'+(d.date?'<time>'+d.date+'</time>':'')+'</div><h3>'+d.title[k]+'</h3><p>'+d.desc[k]+'</p>'+(d.link?'<a class="btn btn-navy" href="'+d.link+'" target="_blank" rel="noopener noreferrer">'+L("Télécharger","Download")+' <span class="ar">↗</span></a>':'')+'</article>'}).join("")+'</div>';
+  }else{
+    s+='<div class="card rv" style="max-width:720px"><h3 style="margin:0 0 8px">'+L("La bibliothèque ouvre bientôt","The library opens soon")+'</h3><p>'+L("Les premiers documents seront ajoutés ici dès leur validation par le Comité de coordination.","The first documents will be added here once the Coordination Committee has validated them.")+'</p></div>';
+  }
+  s+='</div></section>';
+  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("À venir","Coming"),L("Ce que nous prévoyons de publier","What we plan to publish"),"")+cardsRow([
+   [L("Déclaration de création","Founding declaration"),L("Texte fondateur du réseau.","The network's founding text.")],
+   [L("Cadre de résultats","Results framework"),L("Indicateurs et cibles par programme.","Indicators and targets by programme.")],
+   [L("Politiques du réseau","Network policies"),L("Gouvernance, protection et redevabilité.","Governance, safeguarding and accountability.")],
+   [L("Notes conceptuelles","Concept notes"),L("Les deux programmes en préparation.","The two programmes in preparation.")],
+   [L("Recherches et enquêtes","Research and surveys"),L("Données de terrain et preuves pour le plaidoyer.","Field data and evidence for advocacy.")],
+   [L("Rapports d'activité","Activity reports"),L("Résultats et enseignements des actions.","Results and lessons from the actions.")]],"g3")+
+   '<div class="cta rv" style="margin-top:28px"><a class="btn btn-navy" href="#accueil" data-sec="newsletter">'+L("Être prévenu des nouvelles publications","Get notified of new publications")+' <span class="ar">→</span></a><a class="btn btn-line" href="#contact" data-go="contact">'+L("Nous écrire","Write to us")+'</a></div></div></section>';
+  return s;
+}
+function vMedias(){
+  var s=pageHero(L("Médias et communication","Media and communication"),L("Médias","Media"),L("Suivre le réseau et nous contacter","Follow the network and get in touch"),L("Retrouvez les actualités, les vidéos et les prises de parole du réseau, et contactez-nous pour toute demande de presse.","Find the network's news, videos and statements, and contact us for any press request."));
+  s+='<section class="band"><div class="wrap pad">'+head(L("Réseaux","Channels"),L("Où nous trouver","Where to find us"),L("Retrouvez le réseau sur LinkedIn, YouTube et X.","Find the network on LinkedIn, YouTube and X."))+'<div class="rv">'+social()+'</div></div></section>';
+  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Communication","Communication"),L("Ce que vous pouvez trouver ici","What you can find here"),"")+cardsRow([
+   [L("Actualités","News"),L("Les nouvelles du réseau : réunions, nouveaux membres, programmes.","Network news: meetings, new members, programmes."),'<div class="cta"><a class="btn btn-navy" href="#actualites" data-go="actualites">'+L("Lire les actualités","Read the news")+' <span class="ar">→</span></a></div>'],
+   [L("Demandes de presse","Press requests"),L("Journalistes et médias : écrivez au secrétariat pour une interview ou une information.","Journalists and media: write to the secretariat for an interview or information."),'<div class="cta"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Contacter le secrétariat","Contact the secretariat")+' <span class="ar">→</span></a></div>'],
+   [L("Kit média","Media kit"),L("Logo, photos et fiche de présentation du réseau : bientôt disponibles.","Logo, photos and a one-page factsheet about the network: coming soon.")]],"g3")+'</div></section>';
+  return s;
+}
+function vPartenariat(){
+  var s=pageHero(L("Partenariat","Partnership"),L("Travailler avec nous","Work with us"),L("Un réseau ouvert à ceux qui veulent agir avec nous","A network open to those who want to act with us"),L("Bailleurs, institutions, centres de recherche et organisations de terrain : plusieurs façons de s'associer à CRAFST.","Donors, institutions, research centres and field organisations: there are several ways to partner with CRAFST."));
+  s+='<section class="band"><div class="wrap pad">'+head(L("Façons de s'associer","Ways to partner"),L("Choisissez votre porte d'entrée","Choose your way in"),"")+cardsRow([
+   [L("Financer un programme","Fund a programme"),L("Soutenir les programmes conjoints ou l'une des huit commissions. Les engagements financiers sont formalisés par accords écrits.","Support the joint programmes or one of the eight commissions. Financial commitments are formalised in written agreements."),'<div class="cta"><a class="btn btn-navy" href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+' <span class="ar">→</span></a></div>'],
+   [L("Partenariat technique et recherche","Technical and research partnership"),L("Partager des données, des méthodes et des compétences avec les commissions, notamment Connaissances et Innovation.","Share data, methods and skills with the commissions, notably Knowledge and Innovation."),'<div class="cta"><a class="btn btn-navy" href="#commission-7" data-go="commission-7">'+L("Commission Connaissances","Knowledge commission")+' <span class="ar">→</span></a></div>'],
+   [L("Partenariat institutionnel","Institutional partnership"),L("Gouvernements, Communauté d'Afrique de l'Est et organisations régionales : aligner les actions sur les politiques publiques.","Governments, the East African Community and regional organisations: aligning actions with public policy."),'<div class="cta"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Nous écrire","Write to us")+' <span class="ar">→</span></a></div>']],"g3")+'</div></section>';
+  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Comment ça marche","How it works"),L("Trois étapes simples","Three simple steps"),"")+cardsRow([
+   ["1. "+L("Prendre contact","Get in touch"),L("Écrivez au secrétariat en décrivant votre organisation et votre intérêt.","Write to the secretariat describing your organisation and your interest.")],
+   ["2. "+L("Choisir un thème","Choose a theme"),L("Nous identifions ensemble la commission ou le programme qui correspond.","Together we identify the matching commission or programme.")],
+   ["3. "+L("Signer un accord","Sign an agreement"),L("Le partenariat est formalisé par un accord écrit validé par le Comité de coordination.","The partnership is formalised in a written agreement validated by the Coordination Committee.")]],"g3")+
+   '<div class="cta rv" style="margin-top:28px"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Proposer un partenariat","Propose a partnership")+' <span class="ar">→</span></a><a class="btn btn-line" href="#members" data-sec="members">'+L("Voir les fondateurs et partenaires","See founders and partners")+'</a></div></div></section>';
   return s;
 }
 
@@ -793,8 +871,21 @@ function renderChrome(){
    grp(L("Partenaires internationaux","International partners"),IN," lg")+
    grp(L("Partenaires gouvernementaux et politique régionale","Governmental partners and regional policy"),[["EAC","","logo_eac"],["African Union","","ptn_05"],["MINAGRI","Ministry of Agriculture and Animal Resources, Rwanda"]]);
   $("#utilnav").innerHTML='<a href="#a-propos" data-go="a-propos">'+L("À propos","About")+'</a><a href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a><a href="#actualites" data-go="actualites">'+L("Actualités","News")+'</a><a class="cbtn" href="#careers" data-go="careers">'+L("Carrières","Careers")+'</a>';
-  var items=[["accueil",L("Accueil","Home")]].concat(COM.map(function(c,i){return ["commission-"+(i+1),c.s[lang==="fr"?0:1],i+1,c.f[lang==="fr"?0:1]]})).concat([["contact","Contact"]]);
-  $("#mainnav").innerHTML=items.map(function(x){return '<li><a class="nv" href="#'+x[0]+'" data-go="'+x[0]+'"'+(x[3]?' title="'+x[3].replace(/"/g,"&quot;")+'"':"")+(cur===x[0]?' aria-current="page"':"")+'>'+x[1]+'</a></li>'}).join("");
+  var kk=lang==="fr"?0:1;
+  var onProg=cur==="commissions"||cur.indexOf("commission-")===0;
+  var NV=[
+   {r:"accueil",t:L("Accueil","Home")},
+   {r:"a-propos",t:L("À propos","About"),on:cur==="a-propos",sub:[["why",L("Pourquoi","Why")],["vision","Vision"],["mission","Mission"],["values",L("Valeurs","Values")]]},
+   {r:"commissions",t:L("Programmes","Programs"),on:onProg,sub:COM.map(function(c,i){return ["commission-"+(i+1),c.f[kk]]})},
+   {r:"publications",t:"Publications"},
+   {r:"medias",t:L("Médias et communication","Media and communication")},
+   {r:"partenariat",t:L("Partenariat","Partnership")},
+   {r:"contact",t:"Contact"}];
+  $("#mainnav").innerHTML=NV.map(function(x){
+    var on=x.on||cur===x.r;
+    var li='<li'+(x.sub?' class="hs"':'')+'><a class="nv" href="#'+x.r+'" data-go="'+x.r+'"'+(on?' aria-current="page"':"")+'>'+x.t+(x.sub?'<i class="cv" aria-hidden="true"></i>':'')+'</a>';
+    if(x.sub)li+='<div class="sub">'+x.sub.map(function(y){return x.r==="a-propos"?'<a href="#a-propos" data-go="a-propos" data-sec="'+y[0]+'">'+y[1]+'</a>':'<a href="#'+y[0]+'" data-go="'+y[0]+'">'+y[1]+'</a>'}).join("")+'</div>';
+    return li+'</li>'}).join("");
   $("#navdon").innerHTML='<span class="heart">♥</span> '+L("Faire un don","Donate");
   $("#lfr").setAttribute("aria-pressed",lang==="fr");$("#len").setAttribute("aria-pressed",lang==="en");
   $("#fabbd").textContent=L("bientôt","soon");
@@ -829,7 +920,7 @@ function count(el){
 function render(){
   var v=route();var changed=v!==cur;cur=v;
   var main=$("#main");
-  var h=v==="accueil"?vAccueil():v==="a-propos"?vApropos():v==="bailleurs"?vBailleurs():v==="actualites"?vActus():v==="careers"?vCareers():v==="contact"?vContact():vCom(+v.split("-")[1]);
+  var h=v==="accueil"?vAccueil():v==="a-propos"?vApropos():v==="bailleurs"?vBailleurs():v==="actualites"?vActus():v==="careers"?vCareers():v==="contact"?vContact():v==="commissions"?vProgrammes():v==="publications"?vPublications():v==="medias"?vMedias():v==="partenariat"?vPartenariat():vCom(+v.split("-")[1]);
   main.innerHTML=h;
   main.classList.remove("enter");void main.offsetWidth;if(changed)main.classList.add("enter");
   renderChrome();
@@ -878,6 +969,7 @@ function drawDon(){
 function closeModal(){$("#modal").innerHTML=""}
 
 /* ---------- événements ---------- */
+(function(){var mn=document.querySelector(".mainnav");if(mn)mn.addEventListener("mouseleave",function(){mn.classList.remove("shut")})})();
 document.addEventListener("click",function(e){
   var t=e.target;
   var c=t.closest("[data-close]");
@@ -893,9 +985,10 @@ document.addEventListener("click",function(e){
   var fq=t.closest("[data-freq]");if(fq){donState.freq=+fq.getAttribute("data-freq");drawDon();return}
   var st=t.closest("[data-step]");if(st){donState.step=+st.getAttribute("data-step");drawDon();return}
   var g=t.closest("[data-go]");
+  if(g&&g.closest(".mainnav")){var mn=g.closest(".mainnav");mn.classList.add("shut");if(document.activeElement&&document.activeElement.blur)document.activeElement.blur()}
   if(g){e.preventDefault();var sec=g.getAttribute("data-sec");go(g.getAttribute("data-go"),sec);if(chatOpen&&g.closest(".chat")){chatOpen=false;chat(true)}return}
   var s=t.closest("[data-sec]");
-  if(s){e.preventDefault();var id=s.getAttribute("data-sec");if(cur!=="accueil"){go("accueil",id)}else{var el=document.getElementById(id);if(el)window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-60,behavior:"smooth"})}}
+  if(s){e.preventDefault();var id=s.getAttribute("data-sec");var el=document.getElementById(id);if(el){window.scrollTo({top:el.getBoundingClientRect().top+window.scrollY-60,behavior:"smooth"})}else if(cur!=="accueil"){go("accueil",id)}}
 });
 $("#fab").addEventListener("click",function(){chat()});
 document.addEventListener("submit",function(e){
