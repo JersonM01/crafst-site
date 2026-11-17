@@ -70,6 +70,14 @@ p{margin:0}
 .mainnav a.nv:hover::after,.mainnav a.nv[aria-current=page]::after{transform:scaleX(1)}
 .mainnav a.nv .n{color:var(--sun);font-weight:800;margin-right:5px;font-size:12px}
 .mainnav .dn{align-self:center;margin-left:8px;flex:none}
+
+.toc2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.toc2 .k{font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px}
+.toc2 p{margin:0;font-weight:700;font-size:clamp(19px,2.2vw,26px);line-height:1.35}
+.toc2 .gl{background:var(--navy);color:#fff;padding:clamp(24px,3vw,36px);border-radius:6px}.toc2 .gl .k{color:var(--sun)}
+.toc2 .im{background:#fff;border:2px solid var(--green);color:var(--navy);padding:clamp(24px,3vw,36px);border-radius:6px}.toc2 .im .k{color:var(--green-deep)}
+.tocta{background:var(--navy);color:#fff;display:flex;flex-direction:column;justify-content:center;gap:16px}.tocta h3{color:#fff}
+@media (max-width:760px){.toc2{grid-template-columns:1fr}}
 .mainnav li.hs{position:relative}
 .mainnav .cv{display:inline-block;width:6px;height:6px;border-right:2px solid var(--sun);border-bottom:2px solid var(--sun);transform:rotate(45deg) translate(-2px,-2px);margin-left:7px}
 .mainnav .sub{display:none;position:absolute;left:0;top:100%;min-width:300px;max-width:380px;background:var(--navy-deep);padding:8px;border-radius:0 0 14px 14px;box-shadow:0 18px 36px -14px rgba(14,46,87,.7);z-index:60}
@@ -622,6 +630,32 @@ function corridor(){
   '<text x="350" y="366" text-anchor="middle" font-size="11.5" fill="#4A5B6C">'+L("Schéma illustratif, ce n'est pas une carte","Illustrative diagram, not a map")+'</text></svg>';
 }
 
+
+/* ---------- théorie du changement (accueil) ---------- */
+var TOC_PAGE=false; /* passer à true quand la page complète existe */
+function aboutCrafst(){
+  return '<section class="band" id="about-crafst"><div class="wrap pad"><div class="two" style="align-items:start"><div class="rv"><div class="eyebrow">'+L("À propos de CRAFST","About CRAFST")+'</div><h2 style="margin-top:10px">'+L("Conflit, sécurité alimentaire et agriculture : une voix régionale plus forte pour l'Afrique de l'Est","Conflict, Food Security and Agriculture: A Stronger Regional Voice for East Africa")+'</h2></div>'+
+   '<div class="rv d1"><p class="lead" style="margin-top:0">'+L("CRAFST (Conflict Response and Agricultural Food System Transformation in the East African Community) est un réseau régional qui relie la consolidation de la paix à l'agriculture et à la sécurité alimentaire. Par la coopération transfrontalière, il soutient les communautés les plus touchées par les conflits et la faim, en particulier les petits agriculteurs, les femmes et les jeunes, ainsi que les institutions qui les servent.","CRAFST (Conflict Response and Agricultural Food System Transformation in the East African Community) is a regional network that links peacebuilding to agriculture and food security. Through cross-border cooperation, it supports the communities most affected by conflict and hunger, particularly smallholder farmers, women and youth, and the institutions that serve them.")+'</p>'+
+   '<p style="font-weight:700;color:var(--ink);font-size:17px;margin-top:18px">'+L("Nous croyons qu'en mobilisant, en associant et en valorisant l'expertise locale et régionale, les défis de la Communauté d'Afrique de l'Est peuvent être mieux relevés par des réponses ancrées dans les réalités de ses populations et de ses territoires.","We believe that by engaging, involving and valuing local and regional expertise, the challenges of the East African Community can be better addressed with responses rooted in the realities of its people and territories.")+'</p></div></div></div></section>';
+}
+function tocGoal(){
+  return '<div class="toc2"><div class="gl rv"><div class="k">'+L("Objectif global","Overall goal")+'</div><p>'+L("Transformer la richesse naturelle et les capacités des communautés en prospérité partagée grâce à une agriculture durable, inclusive, résiliente au climat et sensible aux conflits.","To transform natural wealth and community capacities into shared prosperity through sustainable, inclusive, climate-resilient and conflict-sensitive agriculture.")+'</p></div>'+
+   '<div class="im rv d1"><div class="k">'+L("Impact à long terme","Long-term impact")+'</div><p>'+L("Une région EAC pacifique, sûre sur le plan alimentaire, résiliente au climat et économiquement autonome.","A peaceful, food-secure, climate-resilient and economically empowered EAC region.")+'</p></div></div>';
+}
+function tocHome(){
+  var D=[
+   ["swap","",L("Chaînes de valeur agricoles intelligentes","Smart agri-value chains"),L("Relier la production aux marchés et améliorer la création de valeur tout au long de la chaîne.","Connect production to markets and improve value creation throughout the chain.")],
+   ["lens","g",L("Solutions numériques et IA","Digital and AI solutions"),L("Utiliser les données, la cartographie, les prévisions et des outils d'aide à la décision au service des acteurs agricoles.","Use data, mapping, forecasting and decision-support tools to support agricultural stakeholders.")],
+   ["heart","y",L("Autonomisation inclusive","Inclusive empowerment"),L("Placer les jeunes, les femmes et les communautés vulnérables au centre des opportunités et des décisions.","Place youth, women and vulnerable communities at the centre of opportunities and decision-making.")],
+   ["peace","",L("Paix et résilience","Peace and resilience"),L("Promouvoir des approches sensibles aux conflits et renforcer la préparation des communautés face aux risques et aux catastrophes.","Promote conflict-sensitive approaches and strengthen communities' preparedness for risks and disasters.")],
+   ["wheat","g",L("Environnement durable","Sustainable environment"),L("Protéger des écosystèmes sains et les ressources naturelles dont dépendent les générations futures.","Protect healthy ecosystems and the natural resources required by future generations.")]];
+  var s=wave("#fff","#E6F2E3")+'<section class="band band-mint" id="tdc" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Théorie du changement","Theory of change"),L("Des communautés résilientes à une région EAC pacifique, sûre sur le plan alimentaire et prospère","From resilient communities to a peaceful, food-secure and prosperous EAC region"),"")+tocGoal()+'</div></section>';
+  s+=wave("#E6F2E3","#FDF1C4")+'<section class="band band-cream" id="innovation" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("L'innovation de CRAFST","The innovation behind CRAFST"),L("Cinq dimensions, traitées ensemble plutôt que séparément","Five dimensions, addressed together instead of separately"),"")+
+   '<div class="grid g3">'+D.map(function(d,i){return '<div class="card rv d'+(i%3+1)+'"><span class="ico '+d[1]+'">'+I[d[0]]+'</span><h3>'+d[2]+'</h3><p>'+d[3]+'</p></div>'}).join("")+
+   (TOC_PAGE?'<div class="card rv d3 tocta"><h3>'+L("Voyez comment les défis, les activités et les résultats s'enchaînent, étape par étape.","See how challenges, activities and results connect, step by step.")+'</h3><a class="btn btn-sun" href="#theory-of-change" data-go="theory-of-change">'+L("Lire la théorie du changement complète","Read the full Theory of Change")+'</a></div>':'')+'</div></div></section>';
+  return s+wave("#FDF1C4","#fff");
+}
+
 /* ---------- vue : accueil ---------- */
 function vAccueil(){
   var s="";
@@ -634,6 +668,7 @@ function vAccueil(){
     '</section>';
   s+=wave("#EEF5FB","#F7C531")+infoGraphic();
   s+=marquee();
+  s+=aboutCrafst()+tocHome();
 
   s+='<section class="band" id="probleme"><div class="wrap pad">'+head(L("Le problème","The problem"),L("Quand les conflits coupent les champs des marchés","When conflict cuts fields off from markets"),L("Dans les zones frontalières de l'Afrique de l'Est, les mêmes causes se répètent et s'aggravent entre elles.","In East Africa's border areas, the same causes keep recurring and feed each other."))+
    '<div class="grid g3"><div class="card rv d1"><span class="ico">'+I.broken+'</span><h3>'+L("Conflits et déplacements","Conflict and displacement")+'</h3><p>'+L("Des familles quittent leurs terres. Les récoltes sont perdues, les routes et les marchés deviennent dangereux.","Families leave their land. Harvests are lost, roads and markets become unsafe.")+'</p></div>'+
@@ -665,7 +700,6 @@ function vAccueil(){
 
   s+='<section class="band band-sky" id="parcours"><div class="wrap pad">'+head(L("Parcours","Journey"),L("Ce qui est fait, ce qui vient","What is done, what comes next"),"")+'<div class="fnd">'+foundersFig()+'<div class="rv d1"><div class="eyebrow">'+L("Fondation","Founding")+'</div><h3>'+L("Un réseau né en septembre 2026","A network born in September 2026")+'</h3><p>'+L("Du 4 au 6 septembre 2026, les fondateurs se sont réunis pour trois jours de travaux. Ils ont clos la rencontre en signant le protocole d'accord qui crée le CRAFST.","From 4 to 6 September 2026, the founders met for three days of work. They closed the meeting by signing the Memorandum of Understanding that creates CRAFST.")+'</p><a class="btn btn-line" href="#actualites" data-go="actualites">'+L("Lire l'actualité","Read the news")+' <span class="ar">→</span></a></div></div>'+timeline()+'</div></section>';
 
-  s+='<section class="band" id="tdc"><div class="wrap pad">'+head(L("Théorie du changement","Theory of change"),L("Comment l'action mène à la paix et à la nourriture","How action leads to peace and food"),L("Version de travail du réseau, à affiner avec les membres.","The network's working version, to be refined with members."))+tdc()+'</div></section>';
 
   s+=wave("#fff","#0E2E57")+'<section class="band band-deep on-dark" style="padding-top:clamp(30px,4vw,50px)" id="medias"><div class="wrap pad"><div class="two" style="align-items:center"><div class="rv"><div class="eyebrow">'+L("Suivre le réseau","Follow the network")+'</div><h2 style="color:#fff">'+L("Actualités, enquêtes et contenus médias","News, surveys and media content")+'</h2><p class="lead" style="margin-top:14px">'+L("Retrouvez nos annonces, nos résultats de collecte de données et nos vidéos dès leur mise en ligne.","Find our announcements, data collection results and videos as soon as they go online.")+'</p><div class="cta"><a class="btn btn-sun" href="#actualites" data-go="actualites">'+L("Voir les actualités","See the news")+' <span class="ar">→</span></a><a class="btn btn-line" href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a></div></div><div class="rv d2">'+social(true)+'</div></div></div></section>';
   s+=wave("#0E2E57","#EEF5FB")+'<section class="band band-sky" style="text-align:center;padding-top:clamp(30px,4vw,50px)"><div class="wrap pad rv"><div class="eyebrow">'+L("Agir avec nous","Act with us")+'</div><h2 style="max-width:20ch;margin:10px auto 0">'+L("Rejoignez un réseau qui fait traverser la paix","Join a network that carries peace across borders")+'</h2><div class="cta" style="justify-content:center"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Nous écrire","Write to us")+' <span class="ar">→</span></a><button class="btn btn-sun" data-open="don"><span class="heart">♥</span> '+L("Faire un don","Donate")+'</button></div></div></section>';
@@ -725,7 +759,7 @@ function vApropos(){
    '<div class="eyebrow rv" style="margin-bottom:12px">'+L("Organisations fondatrices","Founding organisations")+'</div><div class="orgs rv">'+[["ADECOR","Rwanda"],["RCID","Rwanda"],["LAC",L("RD Congo","DR Congo")],["CLOU",L("RD Congo","DR Congo")],["ODAPP",L("RD Congo","DR Congo")],["COMFORT CONGO",L("RD Congo","DR Congo")],["APSDI",L("RD Congo","DR Congo")],["APROVIT",L("RD Congo","DR Congo")]].map(function(o){return '<span class="org">'+o[0]+' <small>'+o[1]+'</small></span>'}).join("")+'</div>'+
    '<div class="eyebrow rv" style="margin:28px 0 12px">'+L("Nouveaux membres (25 septembre 2026)","New members (25 September 2026)")+'</div><div class="orgs rv"><span class="org new">ASCOM</span><span class="org new">ABC</span><span class="org new">SOCOODAP</span></div>'+
    '<div class="cta rv"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Devenir membre","Become a member")+' <span class="ar">→</span></a></div></div></section>';
-  s+='<section class="band band-sky"><div class="wrap pad">'+head(L("Théorie du changement","Theory of change"),L("De l'action à l'impact","From action to impact"),"")+tdc()+'</div></section>';
+  s+='<section class="band band-sky"><div class="wrap pad">'+head(L("Théorie du changement","Theory of change"),L("Des communautés résilientes à une région EAC pacifique, sûre sur le plan alimentaire et prospère","From resilient communities to a peaceful, food-secure and prosperous EAC region"),"")+tocGoal()+'<div class="cta rv"><a class="btn btn-navy" href="#accueil" data-go="accueil" data-sec="innovation">'+L("Les cinq dimensions de l'innovation","The five innovation dimensions")+' <span class="ar">→</span></a></div></div></section>';
   return s;
 }
 
