@@ -5,14 +5,14 @@
 <link rel="preload" as="image" href="media/rice.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Bricolage+Grotesque:wght@500;800&display=swap">
 <style>
 /* Concept : plateforme régionale lumineuse. Fond blanc, bleu dominant, jaune maïs en accent, vert dosé.
    Bandes alternées séparées par des vagues, hero à champs en terrasses, schéma de corridor transfrontalier. */
 :root{
-  --navy:#17467F; --navy-deep:#0E2E57; --green:#2E8B3E; --green-deep:#1F6B33;
-  --sun:#F2B705; --sun-soft:#FDF1C4; --sky:#DCE9F5; --sky-soft:#EEF5FB; --mint:#E6F2E3;
-  --ink:#14212E; --muted:#4A5B6C; --line:#D5E1EC; --bg:#FFFFFF;
+  --navy:#0B4F6C; --navy-deep:#073547; --green:#2E8B3E; --green-deep:#1F6B33;
+  --sun:#F2B705; --sun-soft:#FDF1C4; --sky:#D3E8EE; --sky-soft:#E8F3F6; --mint:#E6F2E3;
+  --ink:#14212E; --muted:#4A5B6C; --line:#D0E2E8; --bg:#FFFFFF;
   --f-display:"Inter","Segoe UI",system-ui,sans-serif;
   --f-ui:"Inter","Segoe UI",system-ui,sans-serif;
   --red:#B42318; --red-deep:#8E1B13; --cream:#FDF1C4;
@@ -33,16 +33,16 @@ p{margin:0}
 .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--green-deep)}
 .on-dark .eyebrow{color:var(--sun)}
 .lead{font-size:clamp(17px,1.6vw,20px);color:var(--muted);max-width:62ch}
-.on-dark .lead{color:#C9DAEC}
+.on-dark .lead{color:#BFDCE5}
 
 /* barre utilitaire */
-.util{background:var(--navy-deep);color:#DCE9F5;font-size:13px}
+.util{background:var(--navy-deep);color:#D3E8EE;font-size:13px}
 .util .wrap{display:flex;gap:6px 18px;align-items:center;justify-content:space-between;padding-block:8px;flex-wrap:wrap}
 .util nav{display:flex;gap:4px 16px;flex-wrap:wrap;align-items:center}
-.util a,.util button.ul{color:#DCE9F5;text-decoration:none;background:none;border:0;padding:2px 0;font-size:13px;font-weight:500}
+.util a,.util button.ul{color:#D3E8EE;text-decoration:none;background:none;border:0;padding:2px 0;font-size:13px;font-weight:500}
 .util a:hover,.util button.ul:hover{color:var(--sun)}
-.lang{display:inline-flex;border:1px solid #3a5f92;border-radius:99px;overflow:hidden}
-.lang button{background:none;border:0;color:#DCE9F5;padding:2px 11px;font-size:12px;font-weight:700}
+.lang{display:inline-flex;border:1px solid #3C7A92;border-radius:99px;overflow:hidden}
+.lang button{background:none;border:0;color:#D3E8EE;padding:2px 11px;font-size:12px;font-weight:700}
 .lang button[aria-pressed=true]{background:var(--sun);color:var(--navy-deep)}
 
 /* en-tête : diaporama */
@@ -50,9 +50,28 @@ p{margin:0}
 .sl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;transform:scale(1.02)}
 .sl.on{opacity:1;animation:kb 9s ease-out forwards}
 @keyframes kb{from{transform:scale(1.02)}to{transform:scale(1.09)}}
-.top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(14,46,87,.18) 0%,rgba(14,46,87,0) 35%,rgba(14,46,87,.62) 100%);z-index:1}
-.cap{position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(14,46,87,.22);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border-top:1px solid rgba(255,255,255,.28);color:#fff}
+.top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,53,71,.18) 0%,rgba(7,53,71,0) 35%,rgba(7,53,71,.62) 100%);z-index:1}
+.cap{position:absolute;left:0;right:0;bottom:0;z-index:2;background:rgba(7,53,71,.22);-webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);border-top:1px solid rgba(255,255,255,.28);color:#fff}
 .cap .wrap{display:flex;align-items:center;gap:clamp(14px,2.4vw,30px);padding-block:clamp(14px,2.2vw,26px)}
+
+.crafst-logo{--emblem:none;max-width:680px;box-sizing:border-box}
+.crafst-logo *{box-sizing:border-box}
+.crafst-logo .cl-card{display:flex;flex-direction:row;flex-wrap:nowrap;align-items:center;justify-content:center;gap:clamp(4px,1.5vw,14px);padding:clamp(8px,1.6vw,14px) clamp(14px,3vw,26px) clamp(8px,1.6vw,14px) clamp(8px,1.6vw,14px);position:relative;padding-left:calc(clamp(92px,15vw,168px)*.07)}
+.crafst-logo .cl-emw{--s:clamp(92px,15vw,168px);position:relative;z-index:2;width:var(--s);aspect-ratio:1;flex:0 0 auto;margin-right:calc(var(--s) * -0.1)}
+.crafst-logo .cl-emw svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.crafst-logo .cl-em{position:absolute;left:22%;top:22%;width:56%;height:56%;border-radius:50%;background:var(--emblem) center/cover no-repeat}
+.crafst-logo .cl-tx{display:flex;flex-direction:column;align-items:flex-start;text-align:left;min-width:0;position:relative;z-index:1}
+.crafst-logo .cl-big{margin:0 0 clamp(5px,1.2vw,10px) -0.035em;font-size:clamp(28px,6.4vw,58px);line-height:1;white-space:nowrap;font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:800;letter-spacing:-1px;color:#A6E08B}
+.crafst-logo .cl-sub{margin:0;font-size:clamp(10px,1.7vw,15px);line-height:1.35;letter-spacing:.2px;font-family:'Bricolage Grotesque','Inter',sans-serif;font-weight:500;color:#D9ECF2}
+.cap .wrap.lg{padding-block:clamp(12px,1.8vw,20px)}
+.cap:has(.crafst-logo){background:rgba(4,38,52,.46)}
+.crafst-logo .cl-big,.crafst-logo .cl-sub{text-shadow:0 2px 14px rgba(0,0,0,.55)}
+.crafst-logo .cl-emw svg{filter:drop-shadow(0 2px 8px rgba(0,0,0,.45))}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+footer .crafst-logo{max-width:420px}
+footer .crafst-logo .cl-emw{--s:clamp(84px,9vw,118px)}
+footer .crafst-logo .cl-big{font-size:clamp(26px,3.2vw,38px)}
+footer .crafst-logo .cl-sub{font-size:clamp(10px,1.2vw,12.5px)}
 .cap img{width:clamp(62px,8vw,104px);height:auto;flex:none;border-radius:16px;background:#fff;padding:5px;box-shadow:0 8px 24px -8px rgba(0,0,0,.5)}
 .cap h1{font-size:clamp(50px,9.5vw,118px);font-weight:900;letter-spacing:-.045em;line-height:.88;color:#fff;text-shadow:0 3px 24px rgba(0,0,0,.4)}
 .cap .sw{font-weight:800;color:var(--sun);font-size:clamp(14px,1.5vw,19px);letter-spacing:.04em;margin-top:8px;text-shadow:0 2px 10px rgba(0,0,0,.45)}
@@ -60,7 +79,7 @@ p{margin:0}
 .dots{position:absolute;right:max(16px,env(safe-area-inset-right,0px));top:16px;z-index:3;display:flex;gap:8px}
 .dots button{width:30px;height:5px;border-radius:5px;border:0;padding:0;background:rgba(255,255,255,.5);transition:.3s}
 .dots button[aria-current=true]{background:var(--sun);width:46px}
-.mainnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);box-shadow:0 6px 18px -10px rgba(14,46,87,.6)}
+.mainnav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--navy);box-shadow:0 6px 18px -10px rgba(7,53,71,.6)}
 .mainnav .wrap{display:flex;align-items:stretch}
 .mainnav ul{display:flex;list-style:none;margin:0;padding:0;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
 .mainnav ul::-webkit-scrollbar{display:none}
@@ -80,7 +99,7 @@ p{margin:0}
 @media (max-width:760px){.toc2{grid-template-columns:1fr}}
 .mainnav li.hs{position:relative}
 .mainnav .cv{display:inline-block;width:6px;height:6px;border-right:2px solid var(--sun);border-bottom:2px solid var(--sun);transform:rotate(45deg) translate(-2px,-2px);margin-left:7px}
-.mainnav .sub{display:none;position:absolute;left:0;top:100%;min-width:300px;max-width:380px;background:var(--navy-deep);padding:8px;border-radius:0 0 14px 14px;box-shadow:0 18px 36px -14px rgba(14,46,87,.7);z-index:60}
+.mainnav .sub{display:none;position:absolute;left:0;top:100%;min-width:300px;max-width:380px;background:var(--navy-deep);padding:8px;border-radius:0 0 14px 14px;box-shadow:0 18px 36px -14px rgba(7,53,71,.7);z-index:60}
 .mainnav .sub a{display:block;color:#fff;text-decoration:none;font-weight:600;font-size:14.5px;line-height:1.3;padding:10px 14px;border-radius:9px}
 .mainnav .sub a:hover,.mainnav .sub a:focus-visible{background:rgba(255,255,255,.12);color:var(--sun)}
 .mainnav li.hs:hover .sub,.mainnav li.hs:focus-within .sub{display:block}
@@ -100,7 +119,7 @@ p{margin:0}
 .btn-sun{background:var(--sun);color:var(--navy-deep)}
 .btn-sun:hover{box-shadow:0 10px 24px -8px rgba(242,183,5,.8);transform:translateY(-2px)}
 .btn-navy{background:var(--navy);color:#fff}
-.btn-navy:hover{background:var(--navy-deep);box-shadow:0 10px 24px -10px rgba(23,70,127,.8);transform:translateY(-2px)}
+.btn-navy:hover{background:var(--navy-deep);box-shadow:0 10px 24px -10px rgba(11,79,108,.8);transform:translateY(-2px)}
 .btn-line{border-color:var(--navy);color:var(--navy);background:transparent}
 .btn-line:hover{background:var(--navy);color:#fff;transform:translateY(-2px)}
 .on-dark .btn-line{border-color:#fff;color:#fff}.on-dark .btn-line:hover{background:#fff;color:var(--navy)}
@@ -137,8 +156,8 @@ main.enter>*{animation:rise .6s var(--ease) both}
 .art{position:relative;margin:0;max-width:600px;width:100%;justify-self:center;border-radius:28px;overflow:hidden;box-shadow:0 30px 60px -30px rgba(20,33,46,.45)}
 .art img{display:block;width:100%;height:auto}
 .art figcaption{position:absolute;right:10px;bottom:10px;background:rgba(20,33,46,.72);color:#fff;font-size:11px;padding:3px 10px;border-radius:99px}
-.art svg{width:100%;height:100%;display:block;border-radius:28px;box-shadow:0 30px 60px -30px rgba(14,46,87,.45)}
-.chip{position:absolute;background:#fff;border-radius:99px;padding:8px 14px;font-weight:700;font-size:13px;color:var(--navy);box-shadow:0 10px 24px -10px rgba(14,46,87,.5);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
+.art svg{width:100%;height:100%;display:block;border-radius:28px;box-shadow:0 30px 60px -30px rgba(7,53,71,.45)}
+.chip{position:absolute;background:#fff;border-radius:99px;padding:8px 14px;font-weight:700;font-size:13px;color:var(--navy);box-shadow:0 10px 24px -10px rgba(7,53,71,.5);display:flex;align-items:center;gap:8px;animation:bob 5s ease-in-out infinite}
 .chip i{width:10px;height:10px;border-radius:50%;background:var(--green)}
 .chip.c2{animation-delay:-1.6s}.chip.c2 i{background:var(--sun)}
 .chip.c3{animation-delay:-3.2s}.chip.c3 i{background:var(--navy)}
@@ -148,7 +167,7 @@ main.enter>*{animation:rise .6s var(--ease) both}
 .flow{stroke-dasharray:6 10;animation:dash 2.4s linear infinite}
 @keyframes dash{to{stroke-dashoffset:-32}}
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(28px,4vw,52px);background:#fff;border-radius:var(--r);box-shadow:0 18px 40px -26px rgba(14,46,87,.5);border:1px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:clamp(28px,4vw,52px);background:#fff;border-radius:var(--r);box-shadow:0 18px 40px -26px rgba(7,53,71,.5);border:1px solid var(--line)}
 .stat{padding:22px 20px;border-right:1px solid var(--line)}.stat:last-child{border:0}
 .stat b{display:block;font-family:var(--f-display);font-size:clamp(34px,4vw,50px);color:var(--navy);line-height:1}
 .stat span{font-size:13.5px;color:var(--muted);display:block;margin-top:6px}
@@ -194,10 +213,10 @@ main.enter>*{animation:rise .6s var(--ease) both}
 .pcol .prog-card p{font-size:14px;margin:0}
 .pcol .ul2{font-size:13.5px;line-height:1.4;gap:3px}
 .pcol .ul2 li{margin:0}
-.pv{margin:0;border-radius:var(--r);overflow:hidden;background:#14212E;min-height:480px;box-shadow:0 18px 40px -26px rgba(14,46,87,.5)}
+.pv{margin:0;border-radius:var(--r);overflow:hidden;background:#14212E;min-height:480px;box-shadow:0 18px 40px -26px rgba(7,53,71,.5)}
 .pv video{display:block;width:100%;height:100%;object-fit:cover}
 footer .dev{padding-right:84px;margin-top:22px;padding-top:22px;border-top:1px solid rgba(255,255,255,.15);display:flex;gap:18px 28px;align-items:center;flex-wrap:wrap;justify-content:space-between}
-footer .dev p{margin:0;font-size:13.5px;color:#C9DAEC;line-height:1.55;max-width:60ch}
+footer .dev p{margin:0;font-size:13.5px;color:#BFDCE5;line-height:1.55;max-width:60ch}
 footer .dev p b{color:#fff}
 footer .by{display:flex;gap:14px;align-items:center}
 footer .by img{width:60px;height:60px;border-radius:50%;object-fit:cover;border:3px solid var(--sun);display:block}
@@ -206,7 +225,7 @@ footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
 .util a.cbtn{background:var(--sun);color:var(--navy-deep);font-weight:700;border-radius:99px;padding:3px 14px}
 .util a.cbtn:hover{background:#fff;color:var(--navy-deep)}
 .fnd{display:grid;grid-template-columns:minmax(0,340px) 1fr;gap:clamp(22px,4vw,56px);align-items:center;margin-bottom:clamp(34px,5vw,60px)}
-.fnd figure{margin:0;border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 24px 50px -30px rgba(14,46,87,.55)}
+.fnd figure{margin:0;border-radius:var(--r);overflow:hidden;background:#fff;border:1px solid var(--line);box-shadow:0 24px 50px -30px rgba(7,53,71,.55)}
 .fnd img{display:block;width:100%;height:auto}
 .fnd figcaption{font-size:12.5px;color:var(--muted);padding:10px 14px}
 .fnd h3{font-size:clamp(24px,3vw,34px);color:var(--navy);margin:10px 0 12px;line-height:1.15}
@@ -234,14 +253,14 @@ footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
 .grid{display:grid;gap:clamp(14px,2vw,24px)}
 .g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}.g2{grid-template-columns:repeat(2,1fr)}
 .card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:26px;transition:transform .35s var(--ease),box-shadow .35s,border-color .35s;min-width:0}
-.card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -24px rgba(14,46,87,.55);border-color:#b9cfe4}
+.card:hover{transform:translateY(-6px);box-shadow:0 22px 40px -24px rgba(7,53,71,.55);border-color:#AFD1DC}
 .card h3{font-size:22px;color:var(--navy);margin:14px 0 8px}
 .card p{color:var(--muted);font-size:15.5px}
 .ico{width:48px;height:48px;border-radius:14px;display:grid;place-items:center;background:var(--sky);color:var(--navy)}
 .ico svg{width:26px;height:26px}
 .ico.g{background:var(--mint);color:var(--green-deep)}.ico.y{background:var(--sun-soft);color:#8a6500}
 .on-dark .card{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.18)}
-.on-dark .card h3{color:#fff}.on-dark .card p{color:#C9DAEC}
+.on-dark .card h3{color:#fff}.on-dark .card p{color:#BFDCE5}
 
 .com{display:flex;flex-direction:column;text-decoration:none;color:inherit;position:relative;overflow:hidden}
 .com .no{font-family:var(--f-display);font-size:54px;line-height:1;color:var(--sky);font-weight:700;transition:color .3s}
@@ -252,9 +271,9 @@ footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
 
 /* pays */
 .states{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(20px,3vw,44px);align-items:center}
-.states figure{margin:0;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -34px rgba(14,46,87,.6);background:var(--navy-deep)}
+.states figure{margin:0;border-radius:var(--r);overflow:hidden;box-shadow:0 30px 60px -34px rgba(7,53,71,.6);background:var(--navy-deep)}
 .states img{display:block;width:100%;height:auto}
-.states figcaption{font-size:12.5px;color:#C9DAEC;padding:10px 16px;background:var(--navy-deep)}
+.states figcaption{font-size:12.5px;color:#BFDCE5;padding:10px 16px;background:var(--navy-deep)}
 .cl{list-style:none;margin:18px 0 0;padding:0;display:grid;gap:8px}
 .cl li{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-weight:600;color:var(--ink)}
 .cl .st{margin-left:auto;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border-radius:99px;padding:3px 10px;white-space:nowrap}
@@ -267,7 +286,7 @@ footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
 .step .b{width:54px;height:54px;border-radius:50%;background:var(--sun);color:var(--navy-deep);display:grid;place-items:center;font-family:var(--f-display);font-weight:700;font-size:22px;margin-bottom:16px;position:relative;z-index:1}
 .step::after{content:"";position:absolute;left:54px;right:0;top:33px;border-top:3px dashed rgba(255,255,255,.35)}
 .step:last-child::after{display:none}
-.step h3{font-size:20px;margin-bottom:6px}.step p{color:#C9DAEC;font-size:15px}
+.step h3{font-size:20px;margin-bottom:6px}.step p{color:#BFDCE5;font-size:15px}
 .quote{font-family:var(--f-display);font-size:clamp(22px,3vw,34px);line-height:1.25;color:#fff;max-width:30ch;font-style:italic}
 
 /* programmes + timeline */
@@ -295,7 +314,7 @@ footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
 .tc small{font-size:11.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--green-deep)}
 .tc h3{font-size:21px;color:var(--navy);margin:8px 0 10px}
 .tc ul{margin:0;padding-left:18px;color:var(--muted);font-size:14.5px}.tc li{margin:4px 0}
-.tc.fin{background:var(--navy);border-color:var(--navy)}.tc.fin h3,.tc.fin small{color:#fff}.tc.fin ul{color:#DCE9F5}.tc.fin small{color:var(--sun)}
+.tc.fin{background:var(--navy);border-color:var(--navy)}.tc.fin h3,.tc.fin small{color:#fff}.tc.fin ul{color:#D3E8EE}.tc.fin small{color:var(--sun)}
 
 /* actus */
 .news{display:flex;flex-direction:column;gap:10px}
@@ -311,14 +330,14 @@ footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
 .chero .wrap{position:relative;z-index:1}
 .chero .big{position:absolute;right:max(16px,4vw);top:50%;transform:translateY(-50%);font-family:var(--f-display);font-size:clamp(180px,32vw,420px);font-weight:700;color:rgba(255,255,255,.07);line-height:.8;pointer-events:none;user-select:none}
 .chero h2{font-size:clamp(32px,5.2vw,64px);margin-top:14px;max-width:18ch;color:#fff}
-.chero .lead{margin-top:18px;color:#C9DAEC}
-.crumb{font-size:13px;color:#C9DAEC;font-weight:600}.crumb a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
+.chero .lead{margin-top:18px;color:#BFDCE5}
+.crumb{font-size:13px;color:#BFDCE5;font-weight:600}.crumb a{text-decoration:none;border-bottom:1px solid rgba(255,255,255,.4)}
 .two{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4vw,56px);align-items:start}
 .side{background:var(--sky-soft);border:1px solid var(--line);border-radius:var(--r);padding:26px;display:grid;gap:16px}
 .side h4{font-family:var(--f-ui);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-deep);margin-bottom:4px}
 .pn{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:6px}
 .pn a{display:block;text-decoration:none;border:1px solid var(--line);border-radius:var(--r);padding:18px 22px;transition:.3s var(--ease);background:#fff;min-width:0}
-.pn a:hover{border-color:var(--navy);transform:translateY(-4px);box-shadow:0 18px 34px -24px rgba(14,46,87,.6)}
+.pn a:hover{border-color:var(--navy);transform:translateY(-4px);box-shadow:0 18px 34px -24px rgba(7,53,71,.6)}
 .pn small{font-size:12px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green-deep)}
 .pn b{display:block;font-family:var(--f-display);font-size:19px;color:var(--navy);margin-top:4px}
 .pn a:last-child{text-align:right}
@@ -341,15 +360,15 @@ table.t td{padding:12px;border-bottom:1px solid var(--line);vertical-align:top}
 .form{display:grid;gap:14px}
 .form label{font-weight:700;font-size:14px;color:var(--navy);display:grid;gap:6px}
 .form input,.form textarea,.form select{font:inherit;border:2px solid var(--line);border-radius:12px;padding:12px 14px;background:#fff;color:var(--ink);min-width:0;width:100%}
-.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px rgba(23,70,127,.14)}
+.form input:focus,.form textarea:focus,.form select:focus{outline:none;border-color:var(--navy);box-shadow:0 0 0 4px rgba(11,79,108,.14)}
 .note{background:var(--sun-soft);border-radius:12px;padding:12px 16px;font-size:14.5px;color:#5b4300}
 .note.ok{background:var(--mint);color:var(--green-deep)}
 
 /* pied */
-footer{background:var(--navy-deep);color:#C9DAEC;padding-block:56px 30px}
+footer{background:var(--navy-deep);color:#BFDCE5;padding-block:56px 30px}
 footer .cols{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:34px}
 footer h4{font-family:var(--f-ui);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--sun);margin-bottom:12px}
-footer a{display:block;color:#C9DAEC;text-decoration:none;padding:4px 0;font-size:15px}
+footer a{display:block;color:#BFDCE5;text-decoration:none;padding:4px 0;font-size:15px}
 footer a:hover{color:#fff}
 footer .fb{display:flex;gap:14px;align-items:center}
 footer .fb img{width:64px;background:#fff;border-radius:14px;padding:4px}
@@ -357,29 +376,29 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 .legal{border-top:1px solid rgba(255,255,255,.15);margin-top:36px;padding-top:20px;font-size:13px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 
 /* chat + don */
-.fab{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 12px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;width:62px;height:62px;border-radius:50%;border:0;background:var(--navy);color:#fff;box-shadow:0 14px 30px -10px rgba(14,46,87,.7);display:grid;place-items:center;transition:transform .3s var(--ease)}
+.fab{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 12px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;width:62px;height:62px;border-radius:50%;border:0;background:var(--navy);color:#fff;box-shadow:0 14px 30px -10px rgba(7,53,71,.7);display:grid;place-items:center;transition:transform .3s var(--ease)}
 .fab:hover{transform:scale(1.08) rotate(-4deg)}
 .fab svg{width:28px;height:28px}
 .fab .bd{position:absolute;top:-4px;right:-6px;background:var(--sun);color:var(--navy-deep);font-size:10px;font-weight:800;border-radius:99px;padding:2px 7px}
 .fab::before{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--navy);animation:ping 2.8s infinite}
 @keyframes ping{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.7);opacity:0}}
-.chat{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 12px));bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:70;width:min(370px,calc(100vw - 32px));background:#fff;border-radius:22px;box-shadow:0 30px 70px -20px rgba(14,46,87,.6);border:1px solid var(--line);overflow:hidden;transform-origin:bottom right;animation:pop .35s var(--ease)}
+.chat{position:fixed;right:max(16px,calc(env(safe-area-inset-right,0px) + 12px));bottom:calc(92px + env(safe-area-inset-bottom,0px));z-index:70;width:min(370px,calc(100vw - 32px));background:#fff;border-radius:22px;box-shadow:0 30px 70px -20px rgba(7,53,71,.6);border:1px solid var(--line);overflow:hidden;transform-origin:bottom right;animation:pop .35s var(--ease)}
 @keyframes pop{from{opacity:0;transform:scale(.85) translateY(14px)}to{opacity:1;transform:none}}
 .chat header{background:var(--navy);color:#fff;padding:16px 18px;display:flex;align-items:center;gap:12px}
 .chat header b{font-family:var(--f-display);font-size:18px;display:block;line-height:1.1}
-.chat header small{color:#C9DAEC;font-size:12px}
+.chat header small{color:#BFDCE5;font-size:12px}
 .chat header button{margin-left:auto;background:rgba(255,255,255,.15);color:#fff;border:0;border-radius:50%;width:32px;height:32px;font-size:18px;line-height:1}
 .chat .av{width:40px;height:40px;border-radius:50%;background:var(--sun);display:grid;place-items:center;color:var(--navy-deep);flex:none}
 .chat .body{padding:16px;display:grid;gap:12px;background:var(--sky-soft);max-height:46vh;overflow:auto}
-.bub{background:#fff;border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:14.5px;box-shadow:0 4px 10px -6px rgba(14,46,87,.4)}
+.bub{background:#fff;border-radius:16px 16px 16px 4px;padding:12px 14px;font-size:14.5px;box-shadow:0 4px 10px -6px rgba(7,53,71,.4)}
 .bub.s{background:var(--sun-soft);color:#5b4300}
 .qk{display:flex;flex-wrap:wrap;gap:8px}
 .qk button{background:#fff;border:1.5px solid var(--navy);color:var(--navy);border-radius:99px;padding:6px 13px;font-size:13px;font-weight:700;transition:.2s}
 .qk button:hover{background:var(--navy);color:#fff}
 .chat form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
-.chat input{flex:1;min-width:0;border:2px solid var(--line);border-radius:99px;padding:10px 14px;font:inherit;background:#f4f7fa}
+.chat input{flex:1;min-width:0;border:2px solid var(--line);border-radius:99px;padding:10px 14px;font:inherit;background:#F2F7F8}
 .chat form button{border:0;background:var(--navy);color:#fff;border-radius:50%;width:44px;height:44px;opacity:.5}
-.ov{position:fixed;inset:0;z-index:90;background:rgba(14,46,87,.6);display:grid;place-items:center;padding:16px;backdrop-filter:blur(3px);animation:fade .25s}
+.ov{position:fixed;inset:0;z-index:90;background:rgba(7,53,71,.6);display:grid;place-items:center;padding:16px;backdrop-filter:blur(3px);animation:fade .25s}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 .dlg{background:#fff;border-radius:26px;max-width:520px;width:100%;max-height:92vh;overflow:auto;padding:clamp(22px,4vw,36px);position:relative;animation:pop .4s var(--ease)}
 .dlg h3{font-size:32px;color:var(--navy);padding-right:36px}
@@ -389,7 +408,7 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 .amts button[aria-pressed=true]{background:var(--navy);color:#fff;border-color:var(--navy);transform:translateY(-3px)}
 .seg{display:inline-flex;background:var(--sky);border-radius:99px;padding:4px;margin-top:6px}
 .seg button{border:0;background:none;border-radius:99px;padding:7px 18px;font-weight:700;color:var(--navy)}
-.seg button[aria-pressed=true]{background:#fff;box-shadow:0 3px 8px -3px rgba(14,46,87,.5)}
+.seg button[aria-pressed=true]{background:#fff;box-shadow:0 3px 8px -3px rgba(7,53,71,.5)}
 
 
 
@@ -414,7 +433,7 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 .nl .msg{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.4);border-radius:12px;padding:12px 16px;font-size:14.5px}
 @media (max-width:760px){.nl .nw{grid-template-columns:1fr}}
 .band-cream{background:var(--cream)}
-.mapfig{margin:0;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 18px 12px;box-shadow:0 24px 50px -34px rgba(14,46,87,.5)}
+.mapfig{margin:0;background:#fff;border:1px solid var(--line);border-radius:22px;padding:18px 18px 12px;box-shadow:0 24px 50px -34px rgba(7,53,71,.5)}
 .mapfig img{display:block;width:100%;max-width:520px;height:auto;margin:0 auto;border-radius:12px}
 .mapfig figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:10px}
 /* galerie + images de commission */
@@ -423,14 +442,14 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 .gal .ti img,.gal .ti video{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s var(--ease)}
 .gal .ti:hover img,.gal .ti:hover video{transform:scale(1.07)}
 .gal .ti.tall{grid-row:span 2}.gal .ti.wide{grid-column:span 2}
-.gal .ti figcaption{position:absolute;left:10px;bottom:10px;background:rgba(14,46,87,.82);color:#fff;font-size:12px;font-weight:700;padding:4px 11px;border-radius:99px;opacity:0;transform:translateY(6px);transition:.35s var(--ease)}
+.gal .ti figcaption{position:absolute;left:10px;bottom:10px;background:rgba(7,53,71,.82);color:#fff;font-size:12px;font-weight:700;padding:4px 11px;border-radius:99px;opacity:0;transform:translateY(6px);transition:.35s var(--ease)}
 .gal .ti:hover figcaption,.gal .ti:focus-within figcaption{opacity:1;transform:none}
 .gal{grid-template-rows:repeat(3,170px)}.gal .p1{grid-area:1/1/3/2}.gal .p2{grid-area:1/2/2/4}.gal .p3{grid-area:1/4/2/5}.gal .p4{grid-area:2/2/4/3}.gal .p5{grid-area:2/3/3/4}.gal .p6{grid-area:2/4/3/5}.gal .p7{grid-area:3/1/4/2}.gal .p8{grid-area:3/3/4/4}.gal .p9{grid-area:3/4/4/5}
 .gnote{margin-top:16px;font-size:13.5px;color:var(--muted)}
 .chero .hg2{display:grid;grid-template-columns:1.25fr .75fr;gap:clamp(20px,4vw,56px);align-items:center}
 .cpic{margin:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.6);border:4px solid rgba(255,255,255,.14);max-height:430px;position:relative}
 .cpic img{display:block;width:100%;height:100%;max-height:430px;object-fit:cover}
-.cpic figcaption{position:absolute;right:10px;bottom:10px;background:rgba(14,46,87,.8);color:#DCE9F5;font-size:11px;padding:3px 10px;border-radius:99px}
+.cpic figcaption{position:absolute;right:10px;bottom:10px;background:rgba(7,53,71,.8);color:#D3E8EE;font-size:11px;padding:3px 10px;border-radius:99px}
 @media (max-width:980px){.gal{grid-template-columns:repeat(2,1fr);grid-template-rows:none;grid-auto-rows:150px}.gal .ti{grid-area:auto!important}.gal .p1,.gal .p4{grid-row:span 2!important}.gal .p2{grid-column:span 2!important}.chero .hg2{grid-template-columns:1fr}.cpic{max-height:260px}.cpic img{max-height:260px}.chero .big{display:none}}
 @media (max-width:980px){
   .hero .hg,.states,.two,.pg{grid-template-columns:1fr}.pv{min-height:0;aspect-ratio:9/16;width:min(100%,340px);justify-self:center}
@@ -465,13 +484,10 @@ footer .fb b{font-family:var(--f-display);font-size:30px;color:#fff;display:bloc
 <header class="top" aria-label="CRAFST">
   <div class="sl on" id="sl0"></div><div class="sl" id="sl1"></div>
   <div class="dots" id="dots"></div>
-  <div class="cap"><div class="wrap pad">
-    <img src="media/emblem.png" alt="Logo CRAFST">
-    <div>
-      <h1>CRAFST</h1>
-      <div class="sw">Amani na Chakula</div>
-      <div class="defn">Conflict Response and Agricultural Food System Transformation in East African Community</div>
-    </div>
+  <div class="cap"><div class="wrap pad lg">
+    <h1 class="vh">CRAFST – Conflict Response, Agriculture and Food Security Transformation</h1>
+    <div class="crafst-logo" role="img" aria-label="CRAFST – Conflict Response, Agriculture and Food Security Transformation"><div class="cl-card"><div class="cl-emw"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="63" fill="none" stroke="#56B4E9" stroke-width="2.4" opacity="1"/><circle cx="100" cy="100" r="73" fill="none" stroke="#4FCFCF" stroke-width="2.4" opacity="0.9"/><circle cx="100" cy="100" r="83" fill="none" stroke="#8AD67E" stroke-width="2.4" opacity="0.8"/><circle cx="100" cy="100" r="93" fill="none" stroke="#F5DE6B" stroke-width="2.4" opacity="0.66"/><circle cx="100" cy="100" r="103" fill="none" stroke="#F7B25E" stroke-width="2.4" opacity="0.52"/><circle cx="100" cy="100" r="113" fill="none" stroke="#F28B82" stroke-width="2.4" opacity="0.4"/></svg><div class="cl-em"></div></div><div class="cl-tx"><p class="cl-big" aria-hidden="true">CRAFST</p>
+<p class="cl-sub" aria-hidden="true">Conflict Response, Agriculture<br>and Food Security Transformation</p></div></div></div>
   </div></div>
 </header>
 
@@ -620,13 +636,13 @@ function mapFig(){
 }
 function corridor(){
   var n=function(x,y,t,c){return '<g><circle cx="'+x+'" cy="'+y+'" r="9" fill="'+c+'" stroke="#fff" stroke-width="3"/><text x="'+(x<350?x-16:x+16)+'" y="'+(y+5)+'" text-anchor="'+(x<350?"end":"start")+'" font-size="14" font-weight="700" fill="#14212E">'+t+'</text></g>'};
-  return '<svg viewBox="0 0 700 380" role="img" aria-label="'+L("Schéma d'un corridor d'échanges entre le Kivu et le Rwanda","Diagram of a trade corridor between Kivu and Rwanda")+'" style="width:100%;height:auto;display:block;border-radius:22px;background:#fff;border:1px solid #D5E1EC">'+
-  '<path d="M0 0H330C350 70 310 120 335 190S345 300 330 380H0z" fill="#E6F2E3"/><path d="M330 0H700V380H330C345 300 335 250 335 190S350 70 330 0z" fill="#DCE9F5"/>'+
-  '<text x="24" y="38" font-size="12" font-weight="800" letter-spacing="2" fill="#1F6B33">'+L("KIVU, RD CONGO","KIVU, DR CONGO")+'</text><text x="676" y="38" text-anchor="end" font-size="12" font-weight="800" letter-spacing="2" fill="#17467F">RWANDA</text>'+
+  return '<svg viewBox="0 0 700 380" role="img" aria-label="'+L("Schéma d'un corridor d'échanges entre le Kivu et le Rwanda","Diagram of a trade corridor between Kivu and Rwanda")+'" style="width:100%;height:auto;display:block;border-radius:22px;background:#fff;border:1px solid #D0E2E8">'+
+  '<path d="M0 0H330C350 70 310 120 335 190S345 300 330 380H0z" fill="#E6F2E3"/><path d="M330 0H700V380H330C345 300 335 250 335 190S350 70 330 0z" fill="#D3E8EE"/>'+
+  '<text x="24" y="38" font-size="12" font-weight="800" letter-spacing="2" fill="#1F6B33">'+L("KIVU, RD CONGO","KIVU, DR CONGO")+'</text><text x="676" y="38" text-anchor="end" font-size="12" font-weight="800" letter-spacing="2" fill="#0B4F6C">RWANDA</text>'+
   '<path d="M330 0C350 70 310 120 335 190S345 300 330 380" fill="none" stroke="#F2B705" stroke-width="4" stroke-dasharray="3 10" stroke-linecap="round"/>'+
-  '<g fill="none" stroke="#17467F" stroke-width="3" stroke-linecap="round" class="flow"><path d="M150 100C250 60 400 150 500 120"/><path d="M130 200C240 170 390 250 510 230"/><path d="M160 300C250 280 380 330 500 310"/></g>'+
+  '<g fill="none" stroke="#0B4F6C" stroke-width="3" stroke-linecap="round" class="flow"><path d="M150 100C250 60 400 150 500 120"/><path d="M130 200C240 170 390 250 510 230"/><path d="M160 300C250 280 380 330 500 310"/></g>'+
   n(150,100,"Goma","#2E8B3E")+n(130,200,"Bukavu","#2E8B3E")+n(160,300,"Kamanyola","#2E8B3E")+
-  n(500,120,L("Districts du lac Kivu","Lake Kivu districts"),"#17467F")+n(510,230,"Rusizi","#17467F")+n(500,310,L("Sud du Rwanda","Southern Rwanda"),"#17467F")+
+  n(500,120,L("Districts du lac Kivu","Lake Kivu districts"),"#0B4F6C")+n(510,230,"Rusizi","#0B4F6C")+n(500,310,L("Sud du Rwanda","Southern Rwanda"),"#0B4F6C")+
   '<text x="350" y="366" text-anchor="middle" font-size="11.5" fill="#4A5B6C">'+L("Schéma illustratif, ce n'est pas une carte","Illustrative diagram, not a map")+'</text></svg>';
 }
 
@@ -635,7 +651,7 @@ function corridor(){
 var TOC_PAGE=true; /* la page complète existe : vTheory() */
 function aboutCrafst(){
   return '<section class="band" id="about-crafst"><div class="wrap pad"><div class="two" style="align-items:start"><div class="rv"><div class="eyebrow">'+L("À propos de CRAFST","About CRAFST")+'</div><h2 style="margin-top:10px">'+L("Conflit, sécurité alimentaire et agriculture : une voix régionale plus forte pour l'Afrique de l'Est","Conflict, Food Security and Agriculture: A Stronger Regional Voice for East Africa")+'</h2></div>'+
-   '<div class="rv d1"><p class="lead" style="margin-top:0">'+L("CRAFST (Conflict Response and Agricultural Food System Transformation in the East African Community) est un réseau régional qui relie la consolidation de la paix à l'agriculture et à la sécurité alimentaire. Par la coopération transfrontalière, il soutient les communautés les plus touchées par les conflits et la faim, en particulier les petits agriculteurs, les femmes et les jeunes, ainsi que les institutions qui les servent.","CRAFST (Conflict Response and Agricultural Food System Transformation in the East African Community) is a regional network that links peacebuilding to agriculture and food security. Through cross-border cooperation, it supports the communities most affected by conflict and hunger, particularly smallholder farmers, women and youth, and the institutions that serve them.")+'</p>'+
+   '<div class="rv d1"><p class="lead" style="margin-top:0">'+L("CRAFST (Conflict Response, Agriculture and Food Security Transformation) est un réseau régional qui relie la consolidation de la paix à l'agriculture et à la sécurité alimentaire. Par la coopération transfrontalière, il soutient les communautés les plus touchées par les conflits et la faim, en particulier les petits agriculteurs, les femmes et les jeunes, ainsi que les institutions qui les servent.","CRAFST (Conflict Response, Agriculture and Food Security Transformation) is a regional network that links peacebuilding to agriculture and food security. Through cross-border cooperation, it supports the communities most affected by conflict and hunger, particularly smallholder farmers, women and youth, and the institutions that serve them.")+'</p>'+
    '<p style="font-weight:700;color:var(--ink);font-size:17px;margin-top:18px">'+L("Nous croyons qu'en mobilisant, en associant et en valorisant l'expertise locale et régionale, les défis de la Communauté d'Afrique de l'Est peuvent être mieux relevés par des réponses ancrées dans les réalités de ses populations et de ses territoires.","We believe that by engaging, involving and valuing local and regional expertise, the challenges of the East African Community can be better addressed with responses rooted in the realities of its people and territories.")+'</p></div></div></div></section>';
 }
 function tocGoal(){
@@ -704,7 +720,7 @@ function vTheory(){
    '<p class="rv" style="margin-top:26px;max-width:70ch;font-size:17px">'+L("L'ambition va donc au-delà de l'introduction de techniques agricoles améliorées. Les communautés doivent pouvoir améliorer durablement leurs revenus et leur nutrition, mieux gérer les risques et participer plus pleinement aux décisions qui les concernent.","This means that the ambition goes beyond introducing improved farming techniques. Communities should be able to improve their incomes and nutrition sustainably, manage risks more effectively and participate more fully in decisions that affect them.")+'</p></div></section>';
   /* impact à long terme */
   s+='<section class="band band-navy"><div class="wrap pad"><div class="eyebrow rv" style="color:var(--sun)">'+L("Impact à long terme","The long-term impact")+'</div><h2 class="rv d1" style="color:#fff;max-width:24ch;margin-top:12px">'+L("Une région EAC pacifique, sûre sur le plan alimentaire, résiliente au climat et économiquement autonome.","A peaceful, food-secure, climate-resilient and economically empowered EAC region.")+'</h2>'+
-   '<p class="rv d2" style="color:#C9DAEC;max-width:70ch;margin-top:18px;font-size:17px">'+L("Cette vision signifie que les communautés peuvent prendre soin de leurs terres, nourrir leurs familles, créer des opportunités et bâtir un avenir durable pour les générations à venir. La transformation recherchée concerne donc en même temps la paix, la sécurité alimentaire, la résilience environnementale et la prospérité économique.","This vision means that communities can nurture their land, feed their families, create opportunities and build a sustainable future for generations to come. The desired transformation therefore concerns peace, food security, environmental resilience and economic prosperity at the same time.")+'</p></div></section>';
+   '<p class="rv d2" style="color:#BFDCE5;max-width:70ch;margin-top:18px;font-size:17px">'+L("Cette vision signifie que les communautés peuvent prendre soin de leurs terres, nourrir leurs familles, créer des opportunités et bâtir un avenir durable pour les générations à venir. La transformation recherchée concerne donc en même temps la paix, la sécurité alimentaire, la résilience environnementale et la prospérité économique.","This vision means that communities can nurture their land, feed their families, create opportunities and build a sustainable future for generations to come. The desired transformation therefore concerns peace, food security, environmental resilience and economic prosperity at the same time.")+'</p></div></section>';
   /* innovation */
   s+='<section class="band band-cream"><div class="wrap pad">'+head(L("L'innovation de CRAFST","The innovation behind CRAFST"),L("Cinq dimensions, traitées ensemble plutôt que séparément","Five dimensions, addressed together instead of separately"),L("L'approche de CRAFST consiste à réunir des dimensions souvent traitées séparément.","CRAFST's innovative approach lies in bringing together dimensions that are often addressed separately."))+
    '<div class="grid g3">'+D.map(function(d,i){return '<div class="card rv d'+(i%3+1)+'"><span class="ico '+d[1]+'">'+I[d[0]]+'</span><h3>'+d[2]+'</h3><p>'+d[3]+'</p></div>'}).join("")+'</div></div></section>';
@@ -718,8 +734,8 @@ function vTheory(){
    '<div class="card rv d1">'+ul([L("<b>Suivre</b> les activités et vérifier que les résultats attendus sont bien livrés.","<b>Monitor</b> activities and verify whether the expected outputs are being delivered."),L("<b>Mesurer</b> les changements dans les pratiques agricoles, les revenus, la sécurité alimentaire, la résilience et la cohésion sociale.","<b>Measure</b> changes in agricultural practices, incomes, food security, resilience and social cohesion."),L("<b>Rendre compte</b> des progrès, des difficultés et des décisions aux communautés, aux partenaires et aux autres parties prenantes.","<b>Report</b> progress, challenges and decisions to communities, partners and other stakeholders."),L("<b>Adapter</b> les interventions à partir des données, des retours des communautés et des leçons apprises.","<b>Adapt</b> interventions based on data, community feedback and lessons learned."),L("<b>Partager</b> les connaissances entre organisations et territoires de la région EAC.","<b>Share</b> knowledge across organisations and territories in the EAC region.")])+'</div></div></section>';
   /* conclusion */
   s+='<section class="band band-navy"><div class="wrap pad"><div class="eyebrow rv" style="color:var(--sun)">Conclusion</div><h2 class="rv d1" style="color:#fff;max-width:24ch;margin-top:12px">'+L("Le changement que CRAFST veut rendre possible","The change CRAFST seeks to make possible")+'</h2>'+
-   '<p class="rv d2" style="color:#C9DAEC;max-width:72ch;margin-top:18px;font-size:17px">'+L("CRAFST – Amani na Chakula défend une vision régionale où l'agriculture devient un moteur de la sécurité alimentaire, un levier d'inclusion économique, un moyen de renforcer la résilience climatique et un chemin vers la paix. En reliant communautés, organisations, marchés, technologies et institutions, le réseau cherche à transformer le potentiel agricole et naturel de la région EAC en bénéfices concrets et partagés.","CRAFST – Amani na Chakula promotes a regional vision in which agriculture becomes a driver of food security, a lever for economic inclusion, a means of strengthening climate resilience and a pathway to peace. By connecting communities, organisations, markets, technologies and institutions, the network seeks to transform the agricultural and natural potential of the EAC region into tangible and shared benefits.")+'</p>'+
-   '<p class="rv d2" style="color:#C9DAEC;max-width:72ch;margin-top:14px;font-size:17px">'+L("Le succès de cette théorie du changement dépendra de la qualité des partenariats, de l'appropriation locale, d'un accès effectif aux marchés et au financement, de la prise en compte des risques liés aux conflits et au climat, et de la capacité à apprendre et à adapter les interventions dans la durée.","The success of this Theory of Change will depend on the quality of partnerships, local ownership, effective access to markets and finance, the integration of conflict and climate-risk considerations, and the ability to learn and adapt interventions over time.")+'</p>'+
+   '<p class="rv d2" style="color:#BFDCE5;max-width:72ch;margin-top:18px;font-size:17px">'+L("CRAFST – Amani na Chakula défend une vision régionale où l'agriculture devient un moteur de la sécurité alimentaire, un levier d'inclusion économique, un moyen de renforcer la résilience climatique et un chemin vers la paix. En reliant communautés, organisations, marchés, technologies et institutions, le réseau cherche à transformer le potentiel agricole et naturel de la région EAC en bénéfices concrets et partagés.","CRAFST – Amani na Chakula promotes a regional vision in which agriculture becomes a driver of food security, a lever for economic inclusion, a means of strengthening climate resilience and a pathway to peace. By connecting communities, organisations, markets, technologies and institutions, the network seeks to transform the agricultural and natural potential of the EAC region into tangible and shared benefits.")+'</p>'+
+   '<p class="rv d2" style="color:#BFDCE5;max-width:72ch;margin-top:14px;font-size:17px">'+L("Le succès de cette théorie du changement dépendra de la qualité des partenariats, de l'appropriation locale, d'un accès effectif aux marchés et au financement, de la prise en compte des risques liés aux conflits et au climat, et de la capacité à apprendre et à adapter les interventions dans la durée.","The success of this Theory of Change will depend on the quality of partnerships, local ownership, effective access to markets and finance, the integration of conflict and climate-risk considerations, and the ability to learn and adapt interventions over time.")+'</p>'+
    '<div class="cta rv d3" style="margin-top:28px"><a class="btn btn-sun" href="#accueil" data-go="accueil">'+L("Retour à l'accueil","Back to home")+' <span class="ar">→</span></a></div></div></section>';
   return s;
 }
@@ -734,7 +750,7 @@ function vAccueil(){
     '<div class="cta rv d3"><a class="btn btn-navy" href="#accueil" data-sec="solution">'+L("Découvrir la solution","See the solution")+' <span class="ar">→</span></a><a class="btn btn-line" href="#contact" data-go="contact">'+L("Rejoindre le réseau","Join the network")+'</a></div></div>'+
     heroArt()+'</div>'+
     '</section>';
-  s+=wave("#EEF5FB","#F7C531")+infoGraphic();
+  s+=wave("#E8F3F6","#F7C531")+infoGraphic();
   s+=marquee();
   s+=aboutCrafst()+tocHome();
 
@@ -743,17 +759,17 @@ function vAccueil(){
    '<div class="card rv d2"><span class="ico g">'+I.cloud+'</span><h3>'+L("Climat et catastrophes","Climate and disasters")+'</h3><p>'+L("Sécheresses, inondations et sols dégradés frappent des paysans qui n'ont ni réserves ni assurance.","Droughts, floods and degraded soils hit farmers with no reserves and no insurance.")+'</p></div>'+
    '<div class="card rv d3"><span class="ico y">'+I.road+'</span><h3>'+L("Marchés coupés, revenus faibles","Cut-off markets, low incomes")+'</h3><p>'+L("Sans accès aux marchés voisins, ni crédit, ni transformation, les paysans vendent peu et à bas prix.","With no access to neighbouring markets, credit or processing, farmers sell little and cheaply.")+'</p></div></div></div></section>';
 
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" id="solution" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("La solution","The solution"),L("CRAFST Amani na Chakula : une coopération transfrontalière pour nourrir et pacifier","CRAFST Amani na Chakula: cross-border cooperation to feed and to pacify"),L("« Amani na Chakula » signifie « la paix et la nourriture » en swahili. Le réseau agit là où les deux se jouent : dans les zones frontalières, avec les paysans.","\"Amani na Chakula\" means \"peace and food\" in Swahili. The network works where both are decided: in border areas, with farmers."))+
+  s+=wave("#fff","#E8F3F6")+'<section class="band band-sky" id="solution" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("La solution","The solution"),L("CRAFST Amani na Chakula : une coopération transfrontalière pour nourrir et pacifier","CRAFST Amani na Chakula: cross-border cooperation to feed and to pacify"),L("« Amani na Chakula » signifie « la paix et la nourriture » en swahili. Le réseau agit là où les deux se jouent : dans les zones frontalières, avec les paysans.","\"Amani na Chakula\" means \"peace and food\" in Swahili. The network works where both are decided: in border areas, with farmers."))+
    '<div class="two"><div>'+mapFig()+'</div><div class="grid" style="gap:14px">'+
    [["Plaidoyer politique","Policy advocacy","Porter la voix des paysans auprès des décideurs.","Carrying farmers' voices to decision-makers."],["Renforcement des capacités","Capacity building","Former les organisations, les coopératives et les jeunes.","Training organisations, cooperatives and youth."],["Gestion des connaissances","Knowledge management","Rassembler et partager ce qui marche.","Gathering and sharing what works."],["Recherche et innovation","Research and innovation","Produire des preuves et des outils utiles.","Producing useful evidence and tools."]].map(function(x,i){
      return '<div class="card rv d'+(i+1)+'" style="padding:18px 22px"><h3 style="margin:0 0 4px;font-size:19px">'+L(x[0],x[1])+'</h3><p>'+L(x[2],x[3])+'</p></div>'}).join("")+
    '<p class="rv" style="font-size:14.5px;color:#4A5B6C">'+L("Le suivi, l'évaluation, la redevabilité et l'apprentissage accompagnent toutes ces actions.","Monitoring, evaluation, accountability and learning run through all of these actions.")+'</p></div></div></div></section>';
 
-  s+=wave("#EEF5FB","#17467F")+'<section class="band band-navy on-dark" style="padding-top:clamp(30px,4vw,50px)" id="paysans"><div class="wrap pad">'+head(L("Au centre : les paysans","At the centre: farmers"),L("Du champ au marché voisin, avec ceux qui cultivent","From field to the next market, with those who farm"),L("Chaque programme part de la même question : qu'est-ce qui permet à un paysan de produire, de vendre au-delà de la frontière et de garder le fruit de son travail ?","Every program starts from the same question: what lets a farmer grow, sell across the border and keep the fruit of the work?"))+
+  s+=wave("#E8F3F6","#0B4F6C")+'<section class="band band-navy on-dark" style="padding-top:clamp(30px,4vw,50px)" id="paysans"><div class="wrap pad">'+head(L("Au centre : les paysans","At the centre: farmers"),L("Du champ au marché voisin, avec ceux qui cultivent","From field to the next market, with those who farm"),L("Chaque programme part de la même question : qu'est-ce qui permet à un paysan de produire, de vendre au-delà de la frontière et de garder le fruit de son travail ?","Every program starts from the same question: what lets a farmer grow, sell across the border and keep the fruit of the work?"))+
    '<div class="steps">'+[["Produire","Grow","Des semences, des techniques et des terres sûres.","Seeds, techniques and secure land."],["Transformer","Process","Conserver, transformer, perdre moins après la récolte.","Preserve, process, lose less after harvest."],["Vendre","Sell","Atteindre les marchés des deux côtés de la frontière.","Reach markets on both sides of the border."],["Épargner","Save","Épargne et crédit pour investir dans la saison suivante.","Savings and credit to invest in the next season."]].map(function(x,i){
      return '<div class="step rv d'+(i+1)+'"><div class="b">'+(i+1)+'</div><h3>'+L(x[0],x[1])+'</h3><p>'+L(x[2],x[3])+'</p></div>'}).join("")+'</div></div></section>';
 
-  s+=wave("#17467F","#FDF1C4")+'<section class="band band-cream" id="etats" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Une vision régionale","A regional vision"),L("Huit États partenaires, une même Communauté","Eight Partner States, one Community"),L("Le réseau est né entre le Rwanda et la RD Congo et s'ouvre progressivement à toute la Communauté d'Afrique de l'Est.","The network began between Rwanda and DR Congo and is opening progressively to the whole East African Community."))+
+  s+=wave("#0B4F6C","#FDF1C4")+'<section class="band band-cream" id="etats" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Une vision régionale","A regional vision"),L("Huit États partenaires, une même Communauté","Eight Partner States, one Community"),L("Le réseau est né entre le Rwanda et la RD Congo et s'ouvre progressivement à toute la Communauté d'Afrique de l'Est.","The network began between Rwanda and DR Congo and is opening progressively to the whole East African Community."))+
    '<div class="states"><figure class="rv"><img src="'+HERO+'" alt="'+L("Drapeaux des États partenaires de la Communauté d'Afrique de l'Est","Flags of the East African Community Partner States")+'" width="1500" height="844"><figcaption>'+L("Les drapeaux des États partenaires de la Communauté d'Afrique de l'Est.","The flags of the East African Community Partner States.")+'</figcaption></figure>'+
    '<div class="rv d2"><ul class="cl">'+STATES.map(function(x){var n=lang==="fr"?x[0]:(STATES_EN[x[0]]||x[0]);return '<li><span class="dot"></span>'+n+'<span class="st '+ST_CLS[x[1]]+'">'+ST_LAB(x[1])+'</span></li>'}).join("")+'</ul>'+
    '<p style="margin-top:14px;font-size:14.5px;color:#4A5B6C">'+L("Statuts à la date de publication : le réseau agit aujourd'hui entre le Rwanda et la RD Congo.","Statuses at publication date: the network operates today between Rwanda and DR Congo.")+'</p></div></div></div></section>';
@@ -769,8 +785,8 @@ function vAccueil(){
   s+='<section class="band band-sky" id="parcours"><div class="wrap pad">'+head(L("Parcours","Journey"),L("Ce qui est fait, ce qui vient","What is done, what comes next"),"")+'<div class="fnd">'+foundersFig()+'<div class="rv d1"><div class="eyebrow">'+L("Fondation","Founding")+'</div><h3>'+L("Un réseau né en septembre 2026","A network born in September 2026")+'</h3><p>'+L("Du 4 au 6 septembre 2026, les fondateurs se sont réunis pour trois jours de travaux. Ils ont clos la rencontre en signant le protocole d'accord qui crée le CRAFST.","From 4 to 6 September 2026, the founders met for three days of work. They closed the meeting by signing the Memorandum of Understanding that creates CRAFST.")+'</p><a class="btn btn-line" href="#actualites" data-go="actualites">'+L("Lire l'actualité","Read the news")+' <span class="ar">→</span></a></div></div>'+timeline()+'</div></section>';
 
 
-  s+=wave("#fff","#0E2E57")+'<section class="band band-deep on-dark" style="padding-top:clamp(30px,4vw,50px)" id="medias"><div class="wrap pad"><div class="two" style="align-items:center"><div class="rv"><div class="eyebrow">'+L("Suivre le réseau","Follow the network")+'</div><h2 style="color:#fff">'+L("Actualités, enquêtes et contenus médias","News, surveys and media content")+'</h2><p class="lead" style="margin-top:14px">'+L("Retrouvez nos annonces, nos résultats de collecte de données et nos vidéos dès leur mise en ligne.","Find our announcements, data collection results and videos as soon as they go online.")+'</p><div class="cta"><a class="btn btn-sun" href="#actualites" data-go="actualites">'+L("Voir les actualités","See the news")+' <span class="ar">→</span></a><a class="btn btn-line" href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a></div></div><div class="rv d2">'+social(true)+'</div></div></div></section>';
-  s+=wave("#0E2E57","#EEF5FB")+'<section class="band band-sky" style="text-align:center;padding-top:clamp(30px,4vw,50px)"><div class="wrap pad rv"><div class="eyebrow">'+L("Agir avec nous","Act with us")+'</div><h2 style="max-width:20ch;margin:10px auto 0">'+L("Rejoignez un réseau qui fait traverser la paix","Join a network that carries peace across borders")+'</h2><div class="cta" style="justify-content:center"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Nous écrire","Write to us")+' <span class="ar">→</span></a><button class="btn btn-sun" data-open="don"><span class="heart">♥</span> '+L("Faire un don","Donate")+'</button></div></div></section>';
+  s+=wave("#fff","#073547")+'<section class="band band-deep on-dark" style="padding-top:clamp(30px,4vw,50px)" id="medias"><div class="wrap pad"><div class="two" style="align-items:center"><div class="rv"><div class="eyebrow">'+L("Suivre le réseau","Follow the network")+'</div><h2 style="color:#fff">'+L("Actualités, enquêtes et contenus médias","News, surveys and media content")+'</h2><p class="lead" style="margin-top:14px">'+L("Retrouvez nos annonces, nos résultats de collecte de données et nos vidéos dès leur mise en ligne.","Find our announcements, data collection results and videos as soon as they go online.")+'</p><div class="cta"><a class="btn btn-sun" href="#actualites" data-go="actualites">'+L("Voir les actualités","See the news")+' <span class="ar">→</span></a><a class="btn btn-line" href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a></div></div><div class="rv d2">'+social(true)+'</div></div></div></section>';
+  s+=wave("#073547","#E8F3F6")+'<section class="band band-sky" style="text-align:center;padding-top:clamp(30px,4vw,50px)"><div class="wrap pad rv"><div class="eyebrow">'+L("Agir avec nous","Act with us")+'</div><h2 style="max-width:20ch;margin:10px auto 0">'+L("Rejoignez un réseau qui fait traverser la paix","Join a network that carries peace across borders")+'</h2><div class="cta" style="justify-content:center"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Nous écrire","Write to us")+' <span class="ar">→</span></a><button class="btn btn-sun" data-open="don"><span class="heart">♥</span> '+L("Faire un don","Donate")+'</button></div></div></section>';
   return s;
 }
 function foundersFig(){
@@ -821,7 +837,7 @@ function vApropos(){
   var s='<section class="chero on-dark"><div class="wrap pad"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+L("À propos","About")+'</div><div class="eyebrow" style="margin-top:22px">'+L("Qui nous sommes","Who we are")+'</div><h2 style="max-width:22ch">'+L("Un réseau régional au service de la paix et de la nourriture","A regional network serving peace and food")+'</h2><p class="lead">'+L("CRAFST est une plateforme permanente de coopération, d'apprentissage et de partage d'expériences. Chaque organisation membre garde son identité juridique et sa responsabilité.","CRAFST is a permanent platform for cooperation, learning and sharing experience. Each member organisation keeps its own legal identity and responsibility.")+'</p></div></section>';
   s+='<section class="band"><div class="wrap pad"><div class="grid g2"><div class="card rv" id="vision"><span class="ico g">'+I.lens+'</span><h3>'+L("Vision","Vision")+'</h3><p>'+L("Une Afrique de l'Est pacifique, sûre sur le plan alimentaire, résiliente face au climat et économiquement dynamique, où les communautés coopèrent au-delà des frontières.","A peaceful, food-secure, climate-resilient and economically vibrant East Africa, where communities cooperate across borders.")+'</p></div><div class="card rv d1" id="mission"><span class="ico y">'+I.shield+'</span><h3>'+L("Mission","Mission")+'</h3><p>'+L("Transformer l'agriculture et les systèmes alimentaires en moteurs de paix, de résilience, de dignité humaine et de prospérité partagée.","Turn agriculture and food systems into engines of peace, resilience, human dignity and shared prosperity.")+'</p></div></div>'+
    '<div class="grid" id="why" style="margin-top:clamp(40px,6vw,70px)">'+head(L("Contexte de création","Why the network exists"),L("Des défis qui se nourrissent entre eux","Challenges that feed each other"),L("Conflits, déplacements de populations, insécurité alimentaire, changement climatique, catastrophes, production perturbée, marchés peu reliés et peu de revenus : ces défis sont liés. L'agriculture et la sécurité alimentaire sont de vrais leviers de paix, surtout dans les zones transfrontalières. Le réseau démarre entre le Rwanda et la RD Congo et vise une extension progressive à toute la Communauté d'Afrique de l'Est.","Conflict, displacement, food insecurity, climate change, disasters, disrupted production, weak market links and low incomes: these challenges are connected. Agriculture and food security are real levers for peace, especially in border areas. The network starts between Rwanda and DR Congo and aims to grow progressively across the whole East African Community."))+'</div></div></section>';
-  s+=wave("#fff","#E6F2E3")+valuesBand()+wave("#E6F2E3","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Gouvernance","Governance"),L("Le Comité de coordination","The Coordination Committee"),"")+'<div class="people">'+
+  s+=wave("#fff","#E6F2E3")+valuesBand()+wave("#E6F2E3","#E8F3F6")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Gouvernance","Governance"),L("Le Comité de coordination","The Coordination Committee"),"")+'<div class="people">'+
    [[L("Coordinateur","Coordinator"),"Damien Ndizeye"],[L("Coordinateur adjoint","Deputy coordinator"),"Emile Bisimwa"],[L("Secrétaire technique et financier","Technical and financial secretary"),"Jerson Bubala Mandundu"],[L("Conseiller","Advisor"),"Dieudonné Karahanyuze Mugongo"],[L("Conseiller","Advisor"),"Sunzu Ntangazwa Manassé"],[L("Conseiller technique","Technical advisor"),"Jules Kazungu"]].map(function(p,i){return '<div class="person rv d'+(i%3+1)+'"><small>'+p[0]+'</small><b>'+p[1]+'</b></div>'}).join("")+'</div></div></section>';
   s+='<section class="band"><div class="wrap pad">'+head(L("Membres","Members"),L("Les organisations du réseau","The network's organisations"),"")+
    '<div class="eyebrow rv" style="margin-bottom:12px">'+L("Organisations fondatrices","Founding organisations")+'</div><div class="orgs rv">'+[["ADECOR","Rwanda"],["RCID","Rwanda"],["LAC",L("RD Congo","DR Congo")],["CLOU",L("RD Congo","DR Congo")],["ODAPP",L("RD Congo","DR Congo")],["COMFORT CONGO",L("RD Congo","DR Congo")],["APSDI",L("RD Congo","DR Congo")],["APROVIT",L("RD Congo","DR Congo")]].map(function(o){return '<span class="org">'+o[0]+' <small>'+o[1]+'</small></span>'}).join("")+'</div>'+
@@ -866,7 +882,7 @@ function vPublications(){
     s+='<div class="card rv" style="max-width:720px"><h3 style="margin:0 0 8px">'+L("La bibliothèque ouvre bientôt","The library opens soon")+'</h3><p>'+L("Les premiers documents seront ajoutés ici dès leur validation par le Comité de coordination.","The first documents will be added here once the Coordination Committee has validated them.")+'</p></div>';
   }
   s+='</div></section>';
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("À venir","Coming"),L("Ce que nous prévoyons de publier","What we plan to publish"),"")+cardsRow([
+  s+=wave("#fff","#E8F3F6")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("À venir","Coming"),L("Ce que nous prévoyons de publier","What we plan to publish"),"")+cardsRow([
    [L("Déclaration de création","Founding declaration"),L("Texte fondateur du réseau.","The network's founding text.")],
    [L("Cadre de résultats","Results framework"),L("Indicateurs et cibles par projet.","Indicators and targets by project.")],
    [L("Politiques du réseau","Network policies"),L("Gouvernance, protection et redevabilité.","Governance, safeguarding and accountability.")],
@@ -879,7 +895,7 @@ function vPublications(){
 function vMedias(){
   var s=pageHero(L("Médias et communication","Media and communication"),L("Médias","Media"),L("Suivre le réseau et nous contacter","Follow the network and get in touch"),L("Retrouvez les actualités, les vidéos et les prises de parole du réseau, et contactez-nous pour toute demande de presse.","Find the network's news, videos and statements, and contact us for any press request."));
   s+='<section class="band"><div class="wrap pad">'+head(L("Réseaux","Channels"),L("Où nous trouver","Where to find us"),L("Retrouvez le réseau sur LinkedIn, YouTube et X.","Find the network on LinkedIn, YouTube and X."))+'<div class="rv">'+social()+'</div></div></section>';
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Communication","Communication"),L("Ce que vous pouvez trouver ici","What you can find here"),"")+cardsRow([
+  s+=wave("#fff","#E8F3F6")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Communication","Communication"),L("Ce que vous pouvez trouver ici","What you can find here"),"")+cardsRow([
    [L("Actualités","News"),L("Les nouvelles du réseau : réunions, nouveaux membres, projets.","Network news: meetings, new members, projects."),'<div class="cta"><a class="btn btn-navy" href="#actualites" data-go="actualites">'+L("Lire les actualités","Read the news")+' <span class="ar">→</span></a></div>'],
    [L("Demandes de presse","Press requests"),L("Journalistes et médias : écrivez au secrétariat pour une interview ou une information.","Journalists and media: write to the secretariat for an interview or information."),'<div class="cta"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Contacter le secrétariat","Contact the secretariat")+' <span class="ar">→</span></a></div>'],
    [L("Kit média","Media kit"),L("Logo, photos et fiche de présentation du réseau : bientôt disponibles.","Logo, photos and a one-page factsheet about the network: coming soon.")]],"g3")+'</div></section>';
@@ -891,7 +907,7 @@ function vPartenariat(){
    [L("Financer un projet","Fund a project"),L("Soutenir nos projets ou l'un des huit programmes. Les engagements financiers sont formalisés par accords écrits.","Support our projects or one of the eight programs. Financial commitments are formalised in written agreements."),'<div class="cta"><a class="btn btn-navy" href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+' <span class="ar">→</span></a></div>'],
    [L("Partenariat technique et recherche","Technical and research partnership"),L("Partager des données, des méthodes et des compétences avec les programmes, notamment Connaissances et Innovation.","Share data, methods and skills with the programs, notably Knowledge and Innovation."),'<div class="cta"><a class="btn btn-navy" href="#commission-7" data-go="commission-7">'+L("Programme Connaissances","Knowledge program")+' <span class="ar">→</span></a></div>'],
    [L("Partenariat institutionnel","Institutional partnership"),L("Gouvernements, Communauté d'Afrique de l'Est et organisations régionales : aligner les actions sur les politiques publiques.","Governments, the East African Community and regional organisations: aligning actions with public policy."),'<div class="cta"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Nous écrire","Write to us")+' <span class="ar">→</span></a></div>']],"g3")+'</div></section>';
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Comment ça marche","How it works"),L("Trois étapes simples","Three simple steps"),"")+cardsRow([
+  s+=wave("#fff","#E8F3F6")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Comment ça marche","How it works"),L("Trois étapes simples","Three simple steps"),"")+cardsRow([
    ["1. "+L("Prendre contact","Get in touch"),L("Écrivez au secrétariat en décrivant votre organisation et votre intérêt.","Write to the secretariat describing your organisation and your interest.")],
    ["2. "+L("Choisir un thème","Choose a theme"),L("Nous identifions ensemble le programme ou le projet qui correspond.","Together we identify the matching program or project.")],
    ["3. "+L("Signer un accord","Sign an agreement"),L("Le partenariat est formalisé par un accord écrit validé par le Comité de coordination.","The partnership is formalised in a written agreement validated by the Coordination Committee.")]],"g3")+
@@ -903,8 +919,8 @@ function vPartenariat(){
 function vBailleurs(){
   var s='<section class="chero on-dark"><div class="wrap pad"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+L("Espace bailleurs","Donor space")+'</div><div class="eyebrow" style="margin-top:22px">'+L("Espace bailleurs et partenaires","Donors and partners")+'</div><h2 style="max-width:22ch">'+L("Qui nous sommes, ce que nous faisons, comment nous rendons compte","Who we are, what we do, how we report")+'</h2><p class="lead">'+L("Les informations essentielles pour évaluer le réseau, en un seul endroit.","The essentials for assessing the network, in one place.")+'</p><div class="cta"><a class="btn btn-sun" href="#contact" data-go="contact">'+L("Contacter le secrétariat","Contact the secretariat")+' <span class="ar">→</span></a></div></div></section>';
   s+='<section class="band"><div class="wrap pad"><div class="tw rv"><table class="t"><thead><tr><th>'+L("Rubrique","Topic")+'</th><th>'+L("Information","Information")+'</th></tr></thead><tbody>'+
-   [[L("Nom","Name"),"CRAFST – Amani na Chakula (Conflict Response and Agricultural Food System Transformation in East African Community)"],[L("Nature","Nature"),L("Plateforme régionale de coopération, d'apprentissage et de partage d'expériences","Regional platform for cooperation, learning and sharing experience")],[L("Siège","Headquarters"),L("Kigali, Rwanda (transférable dans un autre État de l'EAC selon la gouvernance)","Kigali, Rwanda (transferable to another EAC State under the governance rules)")],[L("Zones d'action actuelles","Current areas of action"),L("Rwanda et RD Congo, zones transfrontalières du Kivu","Rwanda and DR Congo, Kivu border areas")],[L("Membres","Members"),L("8 organisations fondatrices, 3 nouveaux membres","8 founding organisations, 3 new members")],[L("Gouvernance","Governance"),L("Comité de coordination de six personnes ; huit programmes techniques","A six-person Coordination Committee; eight technical programs")],[L("Modes d'action","Ways of working"),L("Plaidoyer, renforcement des capacités, gestion des connaissances, recherche et innovation","Advocacy, capacity building, knowledge management, research and innovation")],[L("Suivi et redevabilité","Monitoring and accountability"),L("Suivi, évaluation, redevabilité et apprentissage (MEAL) sur toutes les actions","Monitoring, evaluation, accountability and learning (MEAL) across all actions")],[L("Engagements financiers","Financial commitments"),L("Projets conjoints et engagements financiers formalisés par accords écrits","Joint projects and financial commitments formalised in written agreements")]].map(function(r){return '<tr><td style="font-weight:700;color:#17467F;width:32%">'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join("")+'</tbody></table></div></div></section>';
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Projets","Projects"),L("Ce que nous proposons de financer","What we propose to fund"),L("Les deux notes conceptuelles sont détaillées sur la page d'accueil. Les budgets et le plan de financement sont transmis aux bailleurs intéressés sur demande.","Both concept notes are summarised on the home page. Budgets and funding plans are shared with interested donors on request."))+
+   [[L("Nom","Name"),"CRAFST – Amani na Chakula (Conflict Response, Agriculture and Food Security Transformation)"],[L("Nature","Nature"),L("Plateforme régionale de coopération, d'apprentissage et de partage d'expériences","Regional platform for cooperation, learning and sharing experience")],[L("Siège","Headquarters"),L("Kigali, Rwanda (transférable dans un autre État de l'EAC selon la gouvernance)","Kigali, Rwanda (transferable to another EAC State under the governance rules)")],[L("Zones d'action actuelles","Current areas of action"),L("Rwanda et RD Congo, zones transfrontalières du Kivu","Rwanda and DR Congo, Kivu border areas")],[L("Membres","Members"),L("8 organisations fondatrices, 3 nouveaux membres","8 founding organisations, 3 new members")],[L("Gouvernance","Governance"),L("Comité de coordination de six personnes ; huit programmes techniques","A six-person Coordination Committee; eight technical programs")],[L("Modes d'action","Ways of working"),L("Plaidoyer, renforcement des capacités, gestion des connaissances, recherche et innovation","Advocacy, capacity building, knowledge management, research and innovation")],[L("Suivi et redevabilité","Monitoring and accountability"),L("Suivi, évaluation, redevabilité et apprentissage (MEAL) sur toutes les actions","Monitoring, evaluation, accountability and learning (MEAL) across all actions")],[L("Engagements financiers","Financial commitments"),L("Projets conjoints et engagements financiers formalisés par accords écrits","Joint projects and financial commitments formalised in written agreements")]].map(function(r){return '<tr><td style="font-weight:700;color:#0B4F6C;width:32%">'+r[0]+'</td><td>'+r[1]+'</td></tr>'}).join("")+'</tbody></table></div></div></section>';
+  s+=wave("#fff","#E8F3F6")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Projets","Projects"),L("Ce que nous proposons de financer","What we propose to fund"),L("Les deux notes conceptuelles sont détaillées sur la page d'accueil. Les budgets et le plan de financement sont transmis aux bailleurs intéressés sur demande.","Both concept notes are summarised on the home page. Budgets and funding plans are shared with interested donors on request."))+
    '<div class="cta rv"><a class="btn btn-navy" href="#accueil" data-go="accueil" data-sec="programmes">'+L("Voir les projets","See the projects")+' <span class="ar">→</span></a></div></div></section>';
   s+='<section class="band"><div class="wrap pad">'+head(L("Documents","Documents"),L("En cours de mise en ligne","Being put online"),"")+'<div class="grid g3">'+
    [[L("Déclaration de création","Founding declaration"),L("Texte fondateur du réseau","The network's founding text")],[L("Cadre de résultats","Results framework"),L("Indicateurs et cibles par projet","Indicators and targets by project")],[L("Politiques du réseau","Network policies"),L("Gouvernance, protection et redevabilité","Governance, safeguarding and accountability")]].map(function(d,i){return '<div class="card rv d'+(i+1)+'"><span class="tag b">'+L("Bientôt","Soon")+'</span><h3>'+d[0]+'</h3><p>'+d[1]+'</p></div>'}).join("")+'</div></div></section>';
@@ -921,7 +937,7 @@ function vActus(){
   ];
   var s='<section class="chero on-dark"><div class="wrap pad"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+L("Actualités","News")+'</div><div class="eyebrow" style="margin-top:22px">'+L("Actualités, enquêtes et médias","News, surveys and media")+'</div><h2 style="max-width:20ch">'+L("La vie du réseau","Life of the network")+'</h2></div></section>';
   s+='<section class="band"><div class="wrap pad">'+head(L("Actualités","News"),L("Dernières nouvelles","Latest updates"),"")+'<div class="fnd">'+foundersFig()+'<div class="rv d1"><div class="meta" style="display:flex;gap:12px;align-items:center;margin-bottom:12px"><span class="tag g">'+L("Réseau","Network")+'</span><time style="font-size:13px;font-weight:700;color:var(--muted)">4–6 '+L("sept. 2026","Sep 2026")+'</time></div><h3>'+L("Trois jours de travaux et la signature du protocole d'accord","Three days of work and the signing of the Memorandum of Understanding")+'</h3><p>'+L("Du 4 au 6 septembre 2026, les fondateurs du réseau se sont réunis. La rencontre s'est conclue par la signature du protocole d'accord portant création du CRAFST, qui réunit des organisations du Rwanda et de la RD Congo.","From 4 to 6 September 2026, the founders of the network met. The meeting ended with the signing of the Memorandum of Understanding creating CRAFST, which brings together organisations from Rwanda and DR Congo.")+'</p></div></div><div class="grid g2">'+N.map(function(n,i){return '<article class="card news rv d'+(i%2+1)+'"><div class="meta"><span class="tag '+(i===3?"":"g")+'">'+n[1]+'</span><time>'+n[0]+'</time></div><h3>'+n[2]+'</h3><p>'+n[3]+'</p></article>'}).join("")+'</div></div></section>';
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Enquêtes et recherches","Surveys and research"),L("Des données du terrain pour décider","Field data to inform decisions"),L("Le programme Connaissances prépare une base de données commune. Les premiers résultats seront publiés ici.","The Knowledge program is building a shared database. First results will be published here."))+
+  s+=wave("#fff","#E8F3F6")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Enquêtes et recherches","Surveys and research"),L("Des données du terrain pour décider","Field data to inform decisions"),L("Le programme Connaissances prépare une base de données commune. Les premiers résultats seront publiés ici.","The Knowledge program is building a shared database. First results will be published here."))+
    '<div class="grid g3">'+[[L("Terres disponibles","Available land"),L("Où cultiver, et à quelles conditions.","Where to farm, and on what terms.")],[L("Besoins des bénéficiaires","Beneficiary needs"),L("Ce que demandent les ménages et les coopératives.","What households and cooperatives ask for.")],[L("Épargne et crédit","Savings and credit"),L("L'état des associations villageoises d'épargne et de crédit.","The state of village savings and credit associations.")]].map(function(d,i){return '<div class="card rv d'+(i+1)+'"><span class="tag">'+L("En préparation","In preparation")+'</span><h3>'+d[0]+'</h3><p>'+d[1]+'</p></div>'}).join("")+'</div></div></section>';
   s+='<section class="band"><div class="wrap pad">'+head(L("Médias","Media"),L("Suivre le réseau","Follow the network"),L("Retrouvez le réseau sur LinkedIn, YouTube et X.","Find the network on LinkedIn, YouTube and X."))+'<div class="rv">'+social()+'</div></div></section>';
   return s;
@@ -941,7 +957,7 @@ function vCareers(){
     s+='<div class="card rv" style="max-width:720px"><h3 style="margin:0 0 8px">'+L("Pas de poste ouvert aujourd'hui","No open position today")+'</h3><p>'+L("Les offres du réseau et de ses organisations membres apparaîtront ici dès leur publication, avec le lieu, le type de contrat et la date limite.","Offers from the network and its member organisations will appear here as soon as they are published, with location, contract type and deadline.")+'</p></div>';
   }
   s+='</div></section>';
-  s+=wave("#fff","#EEF5FB")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Publier une offre","Publish an offer"),L("Vous recrutez ? Faites-le savoir au réseau","Hiring? Let the network know"),L("Les organisations membres et les partenaires peuvent proposer une offre d'emploi, une consultance ou un appel à candidatures. Le secrétariat la relit avant publication.","Member organisations and partners can submit a job offer, a consultancy or a call for applications. The secretariat reviews it before publication."))+
+  s+=wave("#fff","#E8F3F6")+'<section class="band band-sky" style="padding-top:clamp(30px,4vw,50px)"><div class="wrap pad">'+head(L("Publier une offre","Publish an offer"),L("Vous recrutez ? Faites-le savoir au réseau","Hiring? Let the network know"),L("Les organisations membres et les partenaires peuvent proposer une offre d'emploi, une consultance ou un appel à candidatures. Le secrétariat la relit avant publication.","Member organisations and partners can submit a job offer, a consultancy or a call for applications. The secretariat reviews it before publication."))+
    '<div class="grid g3">'+[[L("Ce qu'il faut envoyer","What to send"),L("Titre du poste, organisation, lieu, type de contrat, date limite, description et lien ou courriel pour postuler.","Job title, organisation, location, contract type, deadline, description and a link or email to apply.")],[L("Qui peut publier","Who can publish"),L("Le réseau, ses organisations membres et ses partenaires.","The network, its member organisations and its partners.")],[L("Langues","Languages"),L("Les offres sont publiées en anglais, et en français si l'organisation le souhaite.","Offers are published in English, and in French if the organisation wishes.")]].map(function(d,i){return '<div class="card rv d'+(i+1)+'"><h3>'+d[0]+'</h3><p>'+d[1]+'</p></div>'}).join("")+'</div>'+
    '<div class="cta rv" style="margin-top:28px"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Écrire au secrétariat","Write to the secretariat")+' <span class="ar">→</span></a></div></div></section>';
   return s;
@@ -997,7 +1013,7 @@ function renderChrome(){
    '<form id="nlform" novalidate><h3>'+L("S'abonner à la newsletter","Subscribe to the newsletter")+'</h3><div class="row"><input id="nl-e" type="email" autocomplete="email" placeholder="'+L("Votre courriel*","Your email*")+'" aria-label="'+L("Votre courriel","Your email")+'"><button class="btn btn-sun btn-sm" type="submit">'+L("S'abonner","Subscribe")+' <span class="ar">→</span></button></div>'+
    '<div class="sel" role="group" aria-label="'+L("Langue","Language")+'"><label><input type="radio" name="nll" value="fr" '+(lang==="fr"?"checked":"")+'> Français</label><label><input type="radio" name="nll" value="en" '+(lang==="en"?"checked":"")+'> English</label></div>'+
    '<label class="ck"><input id="nl-c" type="checkbox"><span>'+L("J'accepte de recevoir les communications et les dernières nouvelles de CRAFST – Amani na Chakula.","I agree to receive communications and the latest news from CRAFST – Amani na Chakula.")+'</span></label><div id="nlmsg" role="status"></div></form></div>';
-  $("#foot").innerHTML='<div class="cols"><div><div class="fb"><img src="media/emblem.png" alt=""><div><b>CRAFST</b><span>Amani na Chakula</span></div></div><p style="margin-top:16px;font-size:13px;letter-spacing:.08em;text-transform:uppercase;max-width:34ch">Conflict Response and Agricultural Food System Transformation in East African Community</p><p style="margin-top:14px;font-weight:700;color:#fff">Peace · Food · Resilience · Prosperity</p></div>'+
+  $("#foot").innerHTML='<div class="cols"><div><div class="crafst-logo" role="img" aria-label="CRAFST – Conflict Response, Agriculture and Food Security Transformation"><div class="cl-card"><div class="cl-emw"><svg viewBox="0 0 200 200" aria-hidden="true"><circle cx="100" cy="100" r="63" fill="none" stroke="#56B4E9" stroke-width="2.4" opacity="1"/><circle cx="100" cy="100" r="73" fill="none" stroke="#4FCFCF" stroke-width="2.4" opacity="0.9"/><circle cx="100" cy="100" r="83" fill="none" stroke="#8AD67E" stroke-width="2.4" opacity="0.8"/><circle cx="100" cy="100" r="93" fill="none" stroke="#F5DE6B" stroke-width="2.4" opacity="0.66"/><circle cx="100" cy="100" r="103" fill="none" stroke="#F7B25E" stroke-width="2.4" opacity="0.52"/><circle cx="100" cy="100" r="113" fill="none" stroke="#F28B82" stroke-width="2.4" opacity="0.4"/></svg><div class="cl-em"></div></div><div class="cl-tx"><p class="cl-big" aria-hidden="true">CRAFST</p><p class="cl-sub" aria-hidden="true">Conflict Response, Agriculture<br>and Food Security Transformation</p></div></div></div><p style="margin-top:14px;font-weight:700;color:#fff">Conflict, agriculture and food security</p></div>'+
    '<div><h4>'+L("Le réseau","The network")+'</h4><a href="#a-propos" data-go="a-propos">'+L("À propos","About")+'</a><a href="#bailleurs" data-go="bailleurs">'+L("Espace bailleurs","Donor space")+'</a><a href="#actualites" data-go="actualites">'+L("Actualités","News")+'</a><a href="#careers" data-go="careers">'+L("Carrières","Careers")+'</a><a href="#contact" data-go="contact">Contact</a></div>'+
    '<div><h4>'+L("Programmes","Programs")+'</h4>'+COM.slice(0,4).map(function(c,i){return '<a href="#commission-'+(i+1)+'" data-go="commission-'+(i+1)+'">'+c.s[lang==="fr"?0:1]+'</a>'}).join("")+'</div>'+
    '<div><h4>&nbsp;</h4>'+COM.slice(4).map(function(c,i){return '<a href="#commission-'+(i+5)+'" data-go="commission-'+(i+5)+'">'+c.s[lang==="fr"?0:1]+'</a>'}).join("")+'</div></div><div class="legal"><span>© 2026 CRAFST – Amani na Chakula</span><span>'+L("Kigali, Rwanda · Français / English","Kigali, Rwanda · Français / English")+'</span></div>'+
@@ -1026,7 +1042,7 @@ function render(){
   var h=v==="accueil"?vAccueil():v==="a-propos"?vApropos():v==="bailleurs"?vBailleurs():v==="actualites"?vActus():v==="careers"?vCareers():v==="contact"?vContact():v==="commissions"?vProgrammes():v==="publications"?vPublications():v==="medias"?vMedias():v==="partenariat"?vPartenariat():v==="theory-of-change"?vTheory():vCom(+v.split("-")[1]);
   main.innerHTML=h;
   main.classList.remove("enter");void main.offsetWidth;if(changed)main.classList.add("enter");
-  renderChrome();
+  renderChrome();crLogo();
   var pr=$("#prog");pr.classList.remove("run");void pr.offsetWidth;if(changed)pr.classList.add("run");
   document.documentElement.lang=lang;
   document.title="CRAFST – Amani na Chakula";
@@ -1070,6 +1086,14 @@ function drawDon(){
   var f=$(".dlg button.btn,.dlg a.btn",m);if(f)f.focus({preventScroll:true});
 }
 function closeModal(){$("#modal").innerHTML=""}
+
+
+/* ---------- logo CRAFST (en-tête et pied de page) ---------- */
+function crLogo(){
+  document.querySelectorAll(".crafst-logo .cl-em").forEach(function(em){em.style.backgroundImage="url('media/emblem2.jpg')"});
+  document.querySelectorAll(".crafst-logo .cl-tx").forEach(function(t){var b=t.querySelector(".cl-big"),s=t.querySelector(".cl-sub");if(!b||!s)return;b.style.letterSpacing="0px";var w0=b.offsetWidth,ws=s.offsetWidth,fs=parseFloat(getComputedStyle(b).fontSize);if(w0&&ws)b.style.letterSpacing=((ws-w0+0.035*fs)/5)+"px"})
+}
+(document.fonts&&document.fonts.ready?document.fonts.ready:Promise.resolve()).then(crLogo);window.addEventListener("resize",crLogo);window.addEventListener("load",crLogo);
 
 /* ---------- événements ---------- */
 (function(){var mn=document.querySelector(".mainnav");if(mn)mn.addEventListener("mouseleave",function(){mn.classList.remove("shut")})})();
