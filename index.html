@@ -54,6 +54,7 @@ p{margin:0}
 .lang button[aria-pressed=true]{background:var(--sun);color:var(--navy-deep)}
 
 /* en-tête : diaporama */
+body.nohome header.top{display:none}
 .top{position:relative;height:clamp(400px,50vw,580px);background:var(--navy-deep);overflow:hidden;isolation:isolate}
 .sl{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease;transform:scale(1.02)}
 .sl.on{opacity:1;animation:kb 9s ease-out forwards}
@@ -1110,6 +1111,7 @@ function count(el){
 }
 function render(){
   var v=route();var changed=v!==cur;cur=v;
+  document.body.classList.toggle("nohome",v!=="accueil");
   var main=$("#main");
   var h=v==="accueil"?vAccueil():v==="a-propos"?vApropos():v==="bailleurs"?vBailleurs():v==="actualites"?vActus():v==="careers"?vCareers():v==="contact"?vContact():v==="commissions"?vProgrammes():v==="publications"?vPublications():v==="medias"?vMedias():v==="partenariat"?vPartenariat():v==="theory-of-change"?vTheory():vCom(+v.split("-")[1]);
   main.innerHTML=h;if(window.paintOrgReact)paintOrgReact();
