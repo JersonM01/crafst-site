@@ -363,6 +363,18 @@ footer .by strong{display:block;color:#fff;font-size:17px;font-weight:700}
 .soc .btn:hover{border-color:var(--navy)}
 
 /* pages commission */
+.phero{background:#16322f;padding-block:clamp(28px,4vw,52px)}
+.phero .pbgb{position:absolute;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);object-fit:cover;filter:blur(46px) saturate(1.35) brightness(.9);z-index:0}
+.phero .pshade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.28),rgba(0,0,0,.05));z-index:0}
+.pstage{position:relative;min-height:clamp(420px,46vw,540px);display:flex;align-items:center}
+.pfront{position:absolute;right:0;top:0;bottom:0;width:min(48%,520px);margin:0;border-radius:22px;overflow:hidden;box-shadow:0 30px 60px -24px rgba(0,0,0,.6);border:1px solid rgba(255,255,255,.35)}
+.pfront img{width:100%;height:100%;object-fit:cover;display:block}
+.pglass{position:relative;z-index:2;width:min(60%,660px);padding:clamp(22px,3vw,38px);border-radius:22px;background:rgba(255,255,255,.14);-webkit-backdrop-filter:blur(18px) saturate(1.3);backdrop-filter:blur(18px) saturate(1.3);border:1px solid rgba(255,255,255,.34);box-shadow:0 24px 50px -28px rgba(0,0,0,.55);text-shadow:0 1px 14px rgba(0,0,0,.35)}
+.pglass h2{margin-top:10px}
+.pglass .lead{color:#fff;font-size:clamp(15px,1.5vw,17.5px)}
+.pglass .crumb,.pglass .crumb a{color:#fff}
+.pglass .eyebrow{color:#FEE38A}
+@media(max-width:860px){.pstage{flex-direction:column;align-items:stretch;min-height:0}.pfront{position:relative;width:100%;height:clamp(240px,60vw,340px)}.pglass{width:auto;margin:-48px 12px 0}}
 .chero{background:linear-gradient(120deg,var(--navy) 0%,var(--navy-deep) 100%);color:#fff;padding-block:clamp(44px,7vw,92px);position:relative;overflow:hidden}
 .chero .wrap{position:relative;z-index:1}
 .chero .big{position:absolute;right:max(16px,4vw);top:50%;transform:translateY(-50%);font-family:var(--f-display);font-size:clamp(180px,32vw,420px);font-weight:700;color:rgba(255,255,255,.07);line-height:.8;pointer-events:none;user-select:none}
@@ -895,7 +907,7 @@ function social(dark){
 function vCom(n){
   var c=COM[n-1],k=lang==="fr"?0:1;
   var prev=COM[(n+6)%8],next=COM[n%8],pn=(n+6)%8+1,nn=n%8+1;
-  var s='<section class="chero on-dark"><div class="wrap pad hg2"><div><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+c.s[k]+'</div><div class="eyebrow" style="margin-top:22px">'+L("Programme","Program")+'</div><h2>'+c.f[k]+'</h2><p class="lead">'+c.i[k]+'</p></div><figure class="cpic rv"><img src="'+IMG(COMIMG[n-1])+'" alt="" loading="lazy"></figure></div></section>';
+  var s='<section class="chero phero on-dark"><img class="pbgb" src="'+IMG(COMIMG[n-1])+'" alt=""><div class="pshade"></div><div class="wrap pad"><div class="pstage"><figure class="pfront"><img src="'+IMG(COMIMG[n-1])+'" alt=""></figure><div class="pglass"><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+c.s[k]+'</div><div class="eyebrow" style="margin-top:22px">'+L("Programme","Program")+'</div><h2>'+c.f[k]+'</h2><p class="lead">'+c.i[k]+'</p></div></div></div></section>';
   s+='<section class="band"><div class="wrap pad"><div class="two"><div class="rv">'+'<div class="eyebrow">'+L("Axes de travail","Areas of work")+'</div><h2 style="font-size:clamp(26px,3.4vw,40px);margin:8px 0 22px">'+L("Ce que fait le programme","What the program does")+'</h2><ul class="ul2" style="gap:14px">'+c.a.map(function(a){return '<li style="font-size:17px">'+a[k]+'</li>'}).join("")+'</ul>'+
    '<div class="cta"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Rejoindre ce programme","Join this program")+' <span class="ar">→</span></a></div></div>'+
    '<aside class="side rv d2"><div><h4>'+L("Lien avec les paysans","Link to farmers")+'</h4><p style="font-size:15.5px">'+L("Chaque action est pensée avec les paysans et les communautés des zones frontalières.","Every action is designed with farmers and communities in border areas.")+'</p></div><div><h4>'+L("Pilotage","Leadership")+'</h4><p style="font-size:15.5px">'+L("Responsables en cours de confirmation.","Leads being confirmed.")+'</p></div><div><h4>'+L("Plan d'action","Action plan")+'</h4><p style="font-size:15.5px">'+L("En préparation, sur le modèle commun validé le 25 septembre 2026.","In preparation, using the common template agreed on 25 September 2026.")+'</p></div><div><h4>'+L("Projets liés","Linked projects")+'</h4><p style="font-size:15.5px">Amani na Chakula · Climate-Resilient Justice Across the Great Lakes</p></div></aside></div>'+
