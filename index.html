@@ -668,7 +668,7 @@ function comCards(){
   }).join("")+'</div>';
 }
 function heroArt(){
-  return '<figure class="art rv"><img src="media/collage.jpg" alt="'+L("Collage de scènes agricoles : blé, tomates, maïs, serre et paysans au travail","Collage of farming scenes: wheat, tomatoes, maize, greenhouse and farmers at work")+'"><figcaption>'+L("Image d'illustration","Illustrative image")+'</figcaption></figure>';
+  return '<figure class="art rv"><img src="media/collage.jpg" alt="'+L("Collage de scènes agricoles : blé, tomates, maïs, serre et paysans au travail","Collage of farming scenes: wheat, tomatoes, maize, greenhouse and farmers at work")+'"></figure>';
 }
 function infoGraphic(){
   var N=function(n,fr,en,c){return '<div class="it '+c+' rv"><b data-count="'+n+'">'+fmt(n)+'</b><span>'+L(fr,en)+'</span></div>'};
@@ -894,7 +894,7 @@ function social(dark){
 function vCom(n){
   var c=COM[n-1],k=lang==="fr"?0:1;
   var prev=COM[(n+6)%8],next=COM[n%8],pn=(n+6)%8+1,nn=n%8+1;
-  var s='<section class="chero on-dark"><div class="wrap pad hg2"><div><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+c.s[k]+'</div><div class="eyebrow" style="margin-top:22px">'+L("Programme","Program")+'</div><h2>'+c.f[k]+'</h2><p class="lead">'+c.i[k]+'</p></div><figure class="cpic rv"><img src="'+IMG(COMIMG[n-1])+'" alt="" loading="lazy"><figcaption>'+L("Image d'illustration","Illustration image")+'</figcaption></figure></div></section>';
+  var s='<section class="chero on-dark"><div class="wrap pad hg2"><div><div class="crumb"><a href="#accueil" data-go="accueil">'+L("Accueil","Home")+'</a> / '+c.s[k]+'</div><div class="eyebrow" style="margin-top:22px">'+L("Programme","Program")+'</div><h2>'+c.f[k]+'</h2><p class="lead">'+c.i[k]+'</p></div><figure class="cpic rv"><img src="'+IMG(COMIMG[n-1])+'" alt="" loading="lazy"></figure></div></section>';
   s+='<section class="band"><div class="wrap pad"><div class="two"><div class="rv">'+'<div class="eyebrow">'+L("Axes de travail","Areas of work")+'</div><h2 style="font-size:clamp(26px,3.4vw,40px);margin:8px 0 22px">'+L("Ce que fait le programme","What the program does")+'</h2><ul class="ul2" style="gap:14px">'+c.a.map(function(a){return '<li style="font-size:17px">'+a[k]+'</li>'}).join("")+'</ul>'+
    '<div class="cta"><a class="btn btn-navy" href="#contact" data-go="contact">'+L("Rejoindre ce programme","Join this program")+' <span class="ar">→</span></a></div></div>'+
    '<aside class="side rv d2"><div><h4>'+L("Lien avec les paysans","Link to farmers")+'</h4><p style="font-size:15.5px">'+L("Chaque action est pensée avec les paysans et les communautés des zones frontalières.","Every action is designed with farmers and communities in border areas.")+'</p></div><div><h4>'+L("Pilotage","Leadership")+'</h4><p style="font-size:15.5px">'+L("Responsables en cours de confirmation.","Leads being confirmed.")+'</p></div><div><h4>'+L("Plan d'action","Action plan")+'</h4><p style="font-size:15.5px">'+L("En préparation, sur le modèle commun validé le 25 septembre 2026.","In preparation, using the common template agreed on 25 September 2026.")+'</p></div><div><h4>'+L("Projets liés","Linked projects")+'</h4><p style="font-size:15.5px">Amani na Chakula · Climate-Resilient Justice Across the Great Lakes</p></div></aside></div>'+
